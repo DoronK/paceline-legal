@@ -332,14 +332,16 @@
       </svg>
       Paceline
     </div>
-    <div class="masthead-meta">Privacy Policy<br>Last updated Sept 6, 2026</div>
+    <div class="masthead-meta">Privacy Policy<br>Last updated Sept 23, 2026</div>
   </header>
 
   <div class="hero">
     <h1>Privacy Policy</h1>
     <p class="lede">
       How Paceline collects, uses, and protects your information — written
-      in plain terms, matching exactly what the app does.
+      in plain terms, matching exactly what the app does. Paceline is
+      developed and operated by Delta Kernel Labs ("we", "us"), the
+      developer listed on Google Play, which is responsible for your data.
     </p>
   </div>
 
@@ -350,6 +352,8 @@
       <li><a href="#stored">Where it's stored</a></li>
       <li><a href="#parties">Third parties</a></li>
       <li><a href="#choices">Your choices</a></li>
+      <li><a href="#retention">Retention &amp; deletion</a></li>
+      <li><a href="#security">Security</a></li>
       <li><a href="#children">Children</a></li>
       <li><a href="#changes">Changes</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -364,6 +368,8 @@
         <li><a href="#stored">Where it's stored</a></li>
         <li><a href="#parties">Third parties</a></li>
         <li><a href="#choices">Your choices</a></li>
+        <li><a href="#retention">Retention &amp; deletion</a></li>
+        <li><a href="#security">Security</a></li>
         <li><a href="#children">Children</a></li>
         <li><a href="#changes">Changes</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -387,12 +393,13 @@
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             We don't sell your data, and there's no advertising or
-            analytics SDK in the app.
+            third-party analytics SDK in the app. Crash reports go to
+            Sentry so we can fix bugs.
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Your data lives with our backend provider (Supabase) and, for
-            subscriptions, Google Play — nowhere else.
+            Your data lives with our backend provider (Supabase). The few
+            other services we use are listed under Third parties.
           </li>
         </ul>
       </div>
@@ -421,23 +428,39 @@
           <p>
             Your running experience level, goals, weight, chosen race and
             goal time, training schedule preferences, and the training
-            plan we generate for you. If you complete or reschedule a
-            workout, we record that too.
+            plan we generate for you, including past plans you've
+            replaced. If you complete or reschedule a workout, we record
+            that too.
           </p>
         </div>
 
         <div class="field">
           <h3>Health and fitness data — optional</h3>
           <p>
-            If you choose to connect Apple Health or Health Connect, we
-            read your running activities (distance, duration, pace) to
-            match them against your planned workouts. If you separately
-            opt in to recovery insights, we also read your heart-rate
-            variability (HRV) and resting heart rate, used only to decide
-            whether upcoming long runs in your plan should be trimmed
-            back. Both are optional and off by default; declining either
-            doesn't affect the rest of the app. We never share this data
-            with anyone.
+            <strong>Activity sync.</strong> If you choose to connect Apple
+            Health or Health Connect, we read your exercise sessions and
+            the distance, steps and calories burned recorded with them,
+            including past activities, to match them against your planned
+            workouts. For a matched run we keep only its distance,
+            duration, pace and source app, stored with your plan so it
+            syncs across your devices.
+          </p>
+          <p>
+            <strong>Recovery insights.</strong> If you separately opt in,
+            we also read your heart-rate variability (HRV), resting heart
+            rate and sleep sessions (time in bed; sleep on Android only).
+            These are used only to decide whether upcoming long runs in
+            your plan should be trimmed back. They're processed and kept
+            on your device only, as a small rolling 14-day summary, and are
+            never uploaded to our servers.
+          </p>
+          <p>
+            Both are optional and off by default; declining either doesn't
+            affect the rest of the app. Health data is used only to provide
+            these features — never for advertising, never sold, and never
+            shared with anyone. Our use of data received from Health
+            Connect follows the Health Connect Permissions policy,
+            including its Limited Use requirements.
           </p>
         </div>
 
@@ -453,6 +476,14 @@
             purpose, or request it anywhere else in the app. If you
             decline or never tap that prompt, no location data is ever
             read or sent.
+          </p>
+          <p>
+            In the same brief you can instead type your race's city to get
+            a heat-adjusted race goal. What you type is sent to
+            Open-Meteo's place search, and the chosen city's coordinates to
+            its forecast service. The chosen city (its name, coordinates
+            and time zone) and your race start time are saved with your
+            plan.
           </p>
         </div>
 
@@ -470,10 +501,53 @@
         <div class="field">
           <h3>Notifications</h3>
           <p>
-            If you enable them, reminder notifications for a missed long
-            run are scheduled and delivered entirely on your device. We
-            don't use a push-notification service, and no notification
-            content is sent to or through our servers.
+            A reminder for a missed long run is scheduled and delivered
+            entirely on your device. Other reminders (a long run tomorrow,
+            the start of your taper week, a missed workout) are sent by our
+            server through Firebase Cloud Messaging. For these we store
+            your device's push token, platform (Android or iOS), time zone
+            (so reminders arrive at a sensible local hour), your
+            per-reminder on/off settings, and a log of which reminders were
+            sent (so you never get the same one twice). Signing out
+            deletes your push token and settings. You can turn each
+            reminder off in Profile&nbsp;→&nbsp;Notifications, or turn off
+            notifications for Paceline in your device settings.
+          </p>
+        </div>
+
+        <div class="field">
+          <h3>App usage events</h3>
+          <p>
+            We record a small, fixed set of in-app events against your
+            account — for example which onboarding step you reached,
+            whether plan generation succeeded, workouts completed, and
+            paywall views and purchases — with the app version, platform
+            and a random per-launch session ID. They're stored in our own
+            database, not sent to any analytics company, and used only to
+            understand where the app works and where people get stuck.
+          </p>
+        </div>
+
+        <div class="field">
+          <h3>Crash reports</h3>
+          <p>
+            When the app crashes or hits an unexpected error, a report is
+            sent to Sentry. It contains the error and stack trace, your
+            device model and OS version, the app version, and your account
+            ID (a random identifier, not your email) so we can tell whether
+            one person or many are affected. It doesn't include your
+            training plan, health data or location.
+          </p>
+        </div>
+
+        <div class="field">
+          <h3>Sign-in protection</h3>
+          <p>
+            Sign-up, sign-in and password reset are protected by
+            Cloudflare Turnstile, which checks that the request comes from
+            a real person. Cloudflare processes technical signals from
+            your device (such as IP address and browser characteristics)
+            for this check, under its own privacy policy.
           </p>
         </div>
       </section>
@@ -488,6 +562,8 @@
           <li>Fetch a race-day weather forecast, if you ask for one.</li>
           <li>Verify and grant Paceline Pro subscription access.</li>
           <li>Show you reminders you've asked for.</li>
+          <li>Keep sign-in secure and find and fix crashes and bugs.</li>
+          <li>Understand how the app is used, so we can improve it.</li>
         </ul>
         <p>
           We don't use your data for advertising, and we don't sell or
@@ -518,15 +594,17 @@
             </thead>
             <tbody>
               <tr><td>Supabase</td><td>Backend hosting, authentication, and database.</td></tr>
-              <tr><td>Google</td><td>Sign-In (if you choose that sign-up method) and Play Billing / Play Developer API, to process subscription purchases and verify subscription status.</td></tr>
-              <tr><td>Open-Meteo</td><td>Receives an approximate, rounded location only when you request a race-day weather forecast, to return that forecast. No account or identifying information is sent with it.</td></tr>
+              <tr><td>Google</td><td>Sign-In (if you choose that sign-up method); Play Billing / Play Developer API, to process subscription purchases and verify subscription status; and Firebase Cloud Messaging, to deliver push reminders to your device.</td></tr>
+              <tr><td>Open-Meteo</td><td>Receives an approximate, rounded location, or the race city you search for and its coordinates, only when you use the race-week brief's forecast features. No account or identifying information is sent with it.</td></tr>
+              <tr><td>Sentry (Functional Software, Inc.)</td><td>Crash and error reports, as described above.</td></tr>
+              <tr><td>Cloudflare</td><td>Turnstile bot protection on sign-up, sign-in and password reset.</td></tr>
             </tbody>
           </table>
         </div>
         <p>
           We don't share your data with advertisers, analytics networks,
-          or any other third party, and there's no advertising or
-          analytics SDK in the app.
+          data brokers, or any other third party, and there's no
+          advertising or third-party analytics SDK in the app.
         </p>
       </section>
 
@@ -545,11 +623,50 @@
             the app.
           </li>
           <li>
-            You can request deletion of your account and associated data
-            at any time by contacting us at
-            <a href="mailto:deltakernellabs@gmail.com">deltakernellabs@gmail.com</a>.
+            You can turn each push reminder on or off in
+            Profile&nbsp;→&nbsp;Notifications.
+          </li>
+          <li>
+            You can request a copy or deletion of your account and
+            associated data at any time — see
+            <a href="#retention">Retention &amp; deletion</a>.
           </li>
         </ul>
+      </section>
+
+      <section class="doc" id="retention">
+        <h2>Data retention and deletion</h2>
+        <p>
+          We keep your account, profile, training plans, usage events,
+          subscription status and reminder log for as long as your account
+          exists, including past plans you've replaced. Data kept only on
+          your device (recovery summaries, on-device reminders) is removed
+          when you uninstall the app. Crash reports are deleted
+          automatically by Sentry after at most 90 days.
+        </p>
+        <p>
+          To delete your account, email
+          <a href="mailto:deltakernellabs@gmail.com">deltakernellabs@gmail.com</a>
+          from the address you signed up with (or tell us that address).
+          We'll delete your account and all associated data from our
+          database — profile, plans, usage events, subscription record,
+          push token and reminder log — within 30 days and confirm by
+          email. Deleting your account doesn't cancel a Google Play
+          subscription; cancel that in the Play Store first.
+        </p>
+      </section>
+
+      <section class="doc" id="security">
+        <h2>Security</h2>
+        <p>
+          All data between the app and our servers is encrypted in transit
+          (HTTPS/TLS), and our database provider encrypts it at rest. Every
+          table is protected by row-level security, so a signed-in user can
+          only ever read or change their own data. Server secrets (such as
+          API keys) are never shipped in the app, and passwords are
+          handled by Supabase's authentication service, never stored by us
+          in plain text.
+        </p>
       </section>
 
       <section class="doc" id="children">
