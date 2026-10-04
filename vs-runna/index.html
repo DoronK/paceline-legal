@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paceline vs Runna — an honest comparison</title>
+<meta name="description" content="Paceline vs Runna: price, free plans, recovery-based adaptation, rescheduling, ultra distances, and where Runna is ahead. Checked 4 October 2026.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/vs-runna/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="Paceline vs Runna — an honest comparison">
+<meta property="og:description" content="Where Paceline is different, and where Runna is ahead.">
+<meta property="og:url" content="https://pacelinerun.com/vs-runna/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+  </header>
+
+  <main>
+    <h1>Paceline vs Runna</h1>
+    <p class="checked">Checked on 4 October 2026. Prices and limits change; if something here is out of date, <a href="mailto:hello@pacelinerun.com">tell us</a>.</p>
+
+    <p>Runna is the best-known running-plan app, and it's good at a lot. This is for runners deciding between the two, so it covers where each one wins.</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> Paceline is a free, planning-only Android app that adapts to how recovered you are. Runna is a polished, paid app with a record-and-coach experience, watch support and a lot of content. If you want to be coached through every run on your wrist, Runna is ahead. If you want a full plan you can see in full without paying, that responds to recovery data, Paceline is worth a look.</p>
+    </div>
+
+    <h2>Where Paceline is different</h2>
+
+    <div class="point"><strong>The whole plan is free.</strong> Every distance, every week, adaptation, notifications and fueling. Pro (a paid tier) only adds a periodization override, a trends screen and the race-week brief. There's no trial countdown (Runna offers a free 7-day trial). Runna moved its beginner plans behind its subscription on 5 June 2026. Without a subscription you see Week 1 of a plan, and monthly subscribers see the next 4 weeks.</div>
+
+    <div class="point"><strong>It reads recovery, not only pace.</strong> If you connect Health Connect, Paceline looks at HRV, resting heart rate and time in bed, and proposes trimming an upcoming long run when at least two of the three point to fatigue. It never adds volume and never changes anything until you confirm. Runna says heart-rate data &ldquo;will not influence your training plan&rdquo;.</div>
+
+    <div class="point"><strong>Move a workout to any day.</strong> In Paceline you can move a workout to any date from today up to the day before your race. It warns about back-to-back hard days or a long-run jump but doesn't block you, and you can undo a trim. Runna lets you move one workout at a time, within the same week or one week either side, onto a day with no other run, and its plan realignment can't be undone.</div>
+
+    <div class="point"><strong>Longer distances.</strong> Paceline has 50 Mile and 100K plans. In the app, Runna's plans stop at 50 km.</div>
+
+    <div class="point"><strong>Fueling with numbers.</strong> Per-hour carbs, fluid and sodium targets and rehearsal runs, instead of articles.</div>
+
+    <div class="point"><strong>Price.</strong> Paceline Pro is $49.99 a year ($6.99 a month). Runna Premium is $119.99 a year ($19.99 a month) in the US.</div>
+
+    <h2>Where Runna is ahead</h2>
+    <ul>
+      <li><strong>Watches.</strong> Runna pushes workouts to Garmin, Apple Watch, COROS, Suunto and Amazfit. Paceline doesn't push to any watch.</li>
+      <li><strong>In-run coaching.</strong> Runna records runs on your phone with audio cues. Paceline is a planning layer: it doesn't record runs, so you pair it with whatever you already use.</li>
+      <li><strong>A race database</strong>, with how many others are training for each race.</li>
+      <li><strong>Add-on programmes:</strong> strength, yoga, pilates and mobility.</li>
+      <li><strong>Content and coaching voice:</strong> a named coach on each workout, a training hub, a podcast.</li>
+      <li><strong>More goals:</strong> postpartum, post-injury, HYROX and triathlon (run portion), and terrain and injury-history inputs.</li>
+      <li><strong>Languages:</strong> Runna has 8. Paceline is English only for now.</li>
+      <li><strong>Strava</strong>, calendar sync and PDF export.</li>
+      <li><strong>Polish and scale.</strong> It's a large team's product with a long track record; Paceline is built by one developer and is newer.</li>
+    </ul>
+
+    <h2>Which should you pick?</h2>
+    <ul>
+      <li>Pick <strong>Runna</strong> if you want a watch-synced, voice-guided experience and don't mind paying for it.</li>
+      <li>Pick <strong>Paceline</strong> if you want a full plan without a subscription, you're on Android, you train for ultras, or you want your plan to respond to recovery data.</li>
+      <li>You can also use both: Paceline as the plan, any tracker you like for the run itself.</li>
+    </ul>
+
+    <a class="btn" href="https://play.google.com/apps/testing/com.dk.paceline">Join the beta</a>
+    <p class="fine">Paceline is in open testing on Google Play (Android). Runna is a trademark of its owner; Paceline is not affiliated with it.</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
