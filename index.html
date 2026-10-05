@@ -1281,5 +1281,41 @@
   })();
 </script>
 
+<script>
+  // First-party click counting: one row per page view and per "Join the beta"
+  // click (event + which link + time). No cookies, no identifiers, nothing
+  // else is sent. Failures are ignored; the page never waits on this.
+  (function () {
+    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+    var URL = 'https://nbqpvojpxrzzfanzebnp.supabase.co/rest/v1/landing_events';
+    var KEY = 'sb_publishable_Qa3Zofx6UGAefN3mzcBe1Q_CkMe-7PI';
+    function send(event, placement) {
+      try {
+        fetch(URL, {
+          method: 'POST',
+          keepalive: true,
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ event: event, placement: placement || null })
+        }).catch(function () {});
+      } catch (e) {}
+    }
+    function placementOf(el) {
+      if (el.closest('.masthead')) return 'header';
+      if (el.closest('.hero')) return 'hero';
+      if (el.closest('.cta-band')) return 'final_cta';
+      return 'footer';
+    }
+    send('page_view');
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="play.google.com/apps/testing"]');
+      if (a) send('join_click', placementOf(a));
+    });
+  })();
+</script>
+
 </body>
 </html>
