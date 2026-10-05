@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paceline — Adaptive running training plans</title>
-<meta name="description" content="Paceline is an adaptive running training-plan app for 5K to 100K races that adjusts your schedule to your recovery and how training is actually going.">
+<title>Paceline — Adaptive marathon &amp; running training plans</title>
+<meta name="description" content="Paceline is an adaptive running training-plan app for 5K, 10K, half marathon, marathon and ultra races up to 100K. It adjusts your schedule to your recovery and how training is actually going.">
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://pacelinerun.com/">
@@ -1289,6 +1289,14 @@
     if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
     var URL = 'https://nbqpvojpxrzzfanzebnp.supabase.co/rest/v1/landing_events';
     var KEY = 'sb_publishable_Qa3Zofx6UGAefN3mzcBe1Q_CkMe-7PI';
+    // Campaign label from ?ref=<channel> (reddit-ar, strava, il-club, ...).
+    // A coarse label we chose, shared by everyone from that channel, so it
+    // identifies no one. Anything outside [a-z0-9-]{1,32} is dropped.
+    var ref = null;
+    try {
+      var m = (new URLSearchParams(window.location.search).get('ref') || '').toLowerCase();
+      if (/^[a-z0-9-]{1,32}$/.test(m)) ref = m;
+    } catch (e) {}
     function send(event, placement) {
       try {
         fetch(URL, {
@@ -1299,7 +1307,7 @@
             'apikey': KEY,
             'Prefer': 'return=minimal'
           },
-          body: JSON.stringify({ event: event, placement: placement || null })
+          body: JSON.stringify({ event: event, placement: placement || null, ref: ref })
         }).catch(function () {});
       } catch (e) {}
     }
