@@ -403,6 +403,19 @@
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero { padding-bottom: 68px; }
   }
+  /* Single column: show the adjustment card between the lede and the CTA, so
+     the first thing a phone visitor sees is what the app does. The text
+     column's wrapper is flattened so its children can be ordered around the card. */
+  @media (max-width: 860px) {
+    .hero-grid { gap: 0; }
+    .hero-grid > div:first-child { display: contents; }
+    .hero-grid .eyebrow { order: 1; }
+    .hero-grid h1 { order: 2; }
+    .hero-grid p.lede { order: 3; }
+    .hero-grid .signal-card { order: 4; margin: 0 0 28px; }
+    .hero-grid .cta-row { order: 5; }
+    .hero-grid .cta-note { order: 6; }
+  }
   /* Phone widths: tighten the hero so the primary CTA lands above the fold
      on a ~844pt viewport -- most of this page's traffic arrives from a
      Reddit/social link on a phone, and that button is the whole funnel. */
