@@ -408,13 +408,14 @@
      column's wrapper is flattened so its children can be ordered around the card. */
   @media (max-width: 860px) {
     .hero-grid { gap: 0; }
-    .hero-grid > div:first-child { display: contents; }
+    .hero-grid > div:first-child, .hero-grid .hero-aside { display: contents; }
     .hero-grid .eyebrow { order: 1; }
     .hero-grid h1 { order: 2; }
     .hero-grid p.lede { order: 3; }
-    .hero-grid .signal-card { order: 4; margin: 0 0 28px; }
-    .hero-grid .cta-row { order: 5; }
-    .hero-grid .cta-note { order: 6; }
+    .hero-grid .signal-card { order: 4; margin: 0 0 14px; }
+    .hero-grid .free-line { order: 5; margin: 0 0 24px; }
+    .hero-grid .cta-row { order: 6; }
+    .hero-grid .cta-note { order: 7; }
   }
   /* Phone widths: tighten the hero so the primary CTA lands above the fold
      on a ~844pt viewport -- most of this page's traffic arrives from a
@@ -438,6 +439,14 @@
     margin: 0;
     font-size: 0.85rem;
     color: var(--text-secondary);
+  }
+
+  /* "Free, no trial countdown" sits directly under the trimmed-run card. */
+  .free-line {
+    margin: 16px 4px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
   /* Illustrative "adaptive week" card -- a diagram, deliberately not a
@@ -1007,9 +1016,10 @@
             </a>
             <a class="btn btn-ghost" href="#see-it">See the app</a>
           </div>
-          <p class="cta-note" data-reveal data-reveal-delay="3">The whole plan is free, no trial countdown · Open beta on Google Play · Can't join? <a href="mailto:hello@pacelinerun.com" style="color:inherit">Email us</a></p>
+          <p class="cta-note" data-reveal data-reveal-delay="3">Open beta on Google Play · Can't join? <a href="mailto:hello@pacelinerun.com" style="color:inherit">Email us</a></p>
         </div>
 
+        <div class="hero-aside">
         <div class="signal-card" data-reveal data-reveal-delay="2">
           <p class="visually-hidden">Illustration: a week of training in an adaptive plan, and an adjustment Paceline proposed after recovery signals dropped.</p>
           <div class="signal-head" aria-hidden="true">
@@ -1046,6 +1056,8 @@
               proposed a lighter long run. You decide whether to accept it.
             </span>
           </div>
+        </div>
+        <p class="free-line" data-reveal data-reveal-delay="2">The whole plan is free, no trial countdown.</p>
         </div>
       </div>
     </div>
