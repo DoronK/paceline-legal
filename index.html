@@ -416,6 +416,7 @@
     .hero-grid .free-line { order: 5; margin: 0 0 24px; }
     .hero-grid .cta-row { order: 6; }
     .hero-grid .cta-note { order: 7; }
+    .hero-grid .access-form { order: 8; }
   }
   /* Phone widths: tighten the hero so the primary CTA lands above the fold
      on a ~844pt viewport -- most of this page's traffic arrives from a
@@ -440,6 +441,19 @@
     font-size: 0.85rem;
     color: var(--text-secondary);
   }
+
+  /* "Can't get in?" request form, tucked behind a <details> next to the join link. */
+  .access-form { margin: 14px 0 0; max-width: 460px; font-size: 0.9rem; }
+  .access-form summary { cursor: pointer; color: var(--text-secondary); }
+  .access-form form { margin-top: 10px; display: grid; gap: 8px; }
+  .access-form input[type="email"], .access-form textarea {
+    width: 100%; box-sizing: border-box; font: inherit; padding: 10px 12px;
+    color: var(--text-primary); background: var(--surface);
+    border: 1px solid var(--outline); border-radius: 10px;
+  }
+  .access-form button { justify-self: start; }
+  .access-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .access-form .status { margin: 0; color: var(--text-secondary); }
 
   /* "Free, no trial countdown" sits directly under the trimmed-run card. */
   .free-line {
@@ -1017,6 +1031,19 @@
             <a class="btn btn-ghost" href="#see-it">See the app</a>
           </div>
           <p class="cta-note" data-reveal data-reveal-delay="3">Open beta on Google Play · Can't join? <a href="mailto:hello@pacelinerun.com" style="color:inherit">Email us</a></p>
+          <details class="access-form" id="access" data-reveal data-reveal-delay="3">
+            <summary>Can't get in? Leave your email and we'll add you.</summary>
+            <form novalidate>
+              <label class="visually-hidden" for="af-email">Email address</label>
+              <input id="af-email" type="email" name="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required>
+              <label class="visually-hidden" for="af-note">Anything we should know (optional)</label>
+              <textarea id="af-note" name="note" rows="2" maxlength="500" placeholder="Optional: your Google account, or what went wrong"></textarea>
+              <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+              <button class="btn btn-ghost" type="submit">Send</button>
+              <p class="status" role="status" aria-live="polite"></p>
+              <p class="status">We use your email only to add you to the beta and reply. <a href="/privacy/" style="color:inherit">Privacy</a></p>
+            </form>
+          </details>
         </div>
 
         <div class="hero-aside">
@@ -1333,6 +1360,47 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href*="play.google.com/apps/testing"]');
       if (a) send('join_click', placementOf(a));
+    });
+  })();
+</script>
+
+<script>
+  // "Can't get in?" form: one insert into beta_access_requests (email, note,
+  // channel label, time). Bots that fill the hidden field are dropped silently.
+  (function () {
+    var f = document.querySelector('.access-form form');
+    if (!f) return;
+    var URL = 'https://nbqpvojpxrzzfanzebnp.supabase.co/rest/v1/beta_access_requests';
+    var KEY = 'sb_publishable_Qa3Zofx6UGAefN3mzcBe1Q_CkMe-7PI';
+    var ref = null;
+    try {
+      var m = (new URLSearchParams(window.location.search).get('ref') || '').toLowerCase();
+      if (/^[a-z0-9-]{1,32}$/.test(m)) ref = m;
+    } catch (e) {}
+    var status = f.querySelector('.status');
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = f.email.value.trim();
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 254) {
+        status.textContent = 'Please enter a valid email address.';
+        return;
+      }
+      if (f.website.value) { status.textContent = 'Thanks, we got it.'; return; }
+      var btn = f.querySelector('button');
+      btn.disabled = true;
+      status.textContent = 'Sending…';
+      fetch(URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Prefer': 'return=minimal' },
+        body: JSON.stringify({ email: email, note: f.note.value.trim() || null, ref: ref })
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        status.textContent = 'Thanks, we got it. We\'ll add you and email you back.';
+        f.reset();
+      }).catch(function () {
+        btn.disabled = false;
+        status.innerHTML = 'That didn\'t go through. Email <a href="mailto:hello@pacelinerun.com" style="color:inherit">hello@pacelinerun.com</a> instead.';
+      });
     });
   })();
 </script>
