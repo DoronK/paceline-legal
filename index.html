@@ -1326,7 +1326,9 @@
   // click (event + which link + time). No cookies, no identifiers, nothing
   // else is sent. Failures are ignored; the page never waits on this.
   (function () {
-    if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
+    // Do Not Track stops the counting only. The install-referrer stamp below
+    // still runs: it is a coarse channel label in a link, not tracking.
+    var dnt = navigator.doNotTrack === '1' || window.doNotTrack === '1';
     var URL = 'https://nbqpvojpxrzzfanzebnp.supabase.co/rest/v1/landing_events';
     var KEY = 'sb_publishable_Qa3Zofx6UGAefN3mzcBe1Q_CkMe-7PI';
     // Campaign label from ?ref=<channel> (reddit-ar, strava, il-club, ...).
@@ -1338,6 +1340,7 @@
       if (/^[a-z0-9-]{1,32}$/.test(m)) ref = m;
     } catch (e) {}
     function send(event, placement) {
+      if (dnt) return;
       try {
         fetch(URL, {
           method: 'POST',
