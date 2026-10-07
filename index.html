@@ -219,7 +219,7 @@
   }
   .btn-ghost:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 
-  .btn-sm { min-height: 42px; padding: 9px 18px; font-size: 0.9rem; }
+  .btn-sm { min-height: 44px; padding: 9px 18px; font-size: 0.9rem; }
 
   .btn-on-accent {
     background: #FFFFFF;
@@ -403,20 +403,21 @@
     .hero-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero { padding-bottom: 68px; }
   }
-  /* Single column: show the adjustment card between the lede and the CTA, so
-     the first thing a phone visitor sees is what the app does. The text
-     column's wrapper is flattened so its children can be ordered around the card. */
+  /* Single column: the CTA comes straight after the lede, then the adjustment
+     card (#368: on a 360x800 phone the CTA sat below the card, at y~995, and
+     most traffic arrives from a social link on a phone). The text column's
+     wrapper is flattened so its children can be ordered around the card. */
   @media (max-width: 860px) {
     .hero-grid { gap: 0; }
     .hero-grid > div:first-child, .hero-grid .hero-aside { display: contents; }
     .hero-grid .eyebrow { order: 1; }
     .hero-grid h1 { order: 2; }
     .hero-grid p.lede { order: 3; }
-    .hero-grid .signal-card { order: 4; margin: 0 0 14px; }
-    .hero-grid .free-line { order: 5; margin: 0 0 24px; }
-    .hero-grid .cta-row { order: 6; }
-    .hero-grid .cta-note { order: 7; }
-    .hero-grid .access-form { order: 8; }
+    .hero-grid .cta-row { order: 4; }
+    .hero-grid .cta-note { order: 5; }
+    .hero-grid .access-form { order: 6; margin-bottom: 28px; }
+    .hero-grid .signal-card { order: 7; margin: 0 0 14px; }
+    .hero-grid .free-line { order: 8; margin: 0 0 24px; }
   }
   /* Phone widths: tighten the hero so the primary CTA lands above the fold
      on a ~844pt viewport -- most of this page's traffic arrives from a
@@ -983,7 +984,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="https://play.google.com/apps/testing/com.dk.paceline">Join the beta</a>
+    <a class="btn btn-primary btn-sm" data-play="header" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dsite%26utm_source%3Dsite%26utm_medium%3Dheader">Join the beta</a>
   </div>
 </header>
 
@@ -1013,16 +1014,16 @@
     <div class="shell">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow" data-reveal>Training plans that adapt</p>
-          <h1 data-reveal data-reveal-delay="1">Running plans that <span class="grad">adjust to you</span>, not a fixed spreadsheet.</h1>
-          <p class="lede" data-reveal data-reveal-delay="2">
+          <p class="eyebrow">Training plans that adapt</p>
+          <h1>Running plans that <span class="grad">adjust to you</span>, not a fixed spreadsheet.</h1>
+          <p class="lede">
             Paceline builds a personalized running training plan and keeps it
             honest — trimming upcoming long runs when your recent training or
             recovery signals say you need it, instead of asking you to follow a
             static schedule that doesn't know how your training is actually going.
           </p>
-          <div class="cta-row" data-reveal data-reveal-delay="3">
-            <a class="btn btn-primary" href="https://play.google.com/apps/testing/com.dk.paceline">
+          <div class="cta-row">
+            <a class="btn btn-primary" data-play="hero" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dsite%26utm_source%3Dsite%26utm_medium%3Dhero">
               Join the beta
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1030,7 +1031,7 @@
             </a>
             <a class="btn btn-ghost" href="#see-it">See the app</a>
           </div>
-          <p class="cta-note" data-reveal data-reveal-delay="3">Open beta on Google Play · Can't join? <a href="mailto:hello@pacelinerun.com" style="color:inherit">Email us</a></p>
+          <p class="cta-note">Open beta on Google Play · Can't join? <a href="mailto:hello@pacelinerun.com" style="color:inherit">Email us</a></p>
           <details class="access-form" id="access" data-reveal data-reveal-delay="3">
             <summary>Can't get in? Leave your email and we'll add you.</summary>
             <form novalidate>
@@ -1215,7 +1216,7 @@
       <div class="faq">
         <details data-reveal>
           <summary>How do I join the beta?</summary>
-          <p>On your Android phone, open the <a href="https://play.google.com/apps/testing/com.dk.paceline">beta page</a> and tap <b>Become a tester</b>, then install Paceline from Google Play. Use the same Google account your phone uses for the Play Store.</p>
+          <p>On your Android phone, open <a data-play="faq" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dsite%26utm_source%3Dsite%26utm_medium%3Dfaq">Paceline on Google Play</a> and tap <b>Install</b>. Use the Google account your phone uses for the Play Store.</p>
         </details>
         <details data-reveal>
           <summary>Is Paceline free to use?</summary>
@@ -1249,7 +1250,7 @@
         race, and tell us where it gets it wrong.
       </p>
       <div class="cta-row" data-reveal data-reveal-delay="2">
-        <a class="btn btn-on-accent" href="https://play.google.com/apps/testing/com.dk.paceline">
+        <a class="btn btn-on-accent" data-play="final_cta" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dsite%26utm_source%3Dsite%26utm_medium%3Dfinal_cta">
           Join the beta
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1267,7 +1268,7 @@
   <div class="shell footer-inner">
     <span>&copy; 2026 Paceline</span>
     <div class="links">
-      <a href="https://play.google.com/apps/testing/com.dk.paceline">Join the beta</a>
+      <a data-play="footer" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dsite%26utm_source%3Dsite%26utm_medium%3Dfooter">Join the beta</a>
       <a href="https://www.strava.com/clubs/2359673">Strava club</a>
       <a href="/privacy/">Privacy Policy</a>
       <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
@@ -1351,14 +1352,24 @@
       } catch (e) {}
     }
     function placementOf(el) {
+      if (el.dataset && el.dataset.play) return el.dataset.play;
       if (el.closest('.masthead')) return 'header';
       if (el.closest('.hero')) return 'hero';
       if (el.closest('.cta-band')) return 'final_cta';
       return 'footer';
     }
+    // Play CTAs: stamp the channel into the install referrer. The static href
+    // already carries ref=site (no JS, or no valid ?ref=); a valid ?ref=<channel>
+    // replaces it so the app records install_attributed ref=<channel>.
+    var ch = ref || 'site';
+    var links = document.querySelectorAll('a[data-play]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].href = 'https://play.google.com/store/apps/details?id=com.dk.paceline&referrer=' +
+        encodeURIComponent('ref=' + ch + '&utm_source=' + ch + '&utm_medium=' + links[i].getAttribute('data-play'));
+    }
     send('page_view');
     document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href*="play.google.com/apps/testing"]');
+      var a = e.target.closest && e.target.closest('a[data-play]');
       if (a) send('join_click', placementOf(a));
     });
   })();
