@@ -367,7 +367,7 @@
       </svg>
       Paceline
     </div>
-    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 7, 2026</div>
+    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 17, 2026</div>
   </header>
 
   <div class="hero">
@@ -485,7 +485,8 @@
             we also read your heart-rate variability (HRV), resting heart
             rate and sleep sessions (time in bed; sleep on Android only).
             These are used only to decide whether upcoming long runs in
-            your plan should be trimmed back. They're processed and kept
+            your plan should be trimmed back, or a harder session swapped
+            for an easy one. They're processed and kept
             on your device only, as a small rolling 14-day summary, and are
             never uploaded to our servers.
           </p>
@@ -549,6 +550,20 @@
             deletes your push token and settings. You can turn each
             reminder off in Profile&nbsp;→&nbsp;Notifications, or turn off
             notifications for Paceline in your device settings.
+          </p>
+        </div>
+
+        <div class="field">
+          <h3>AI-tailored plans — optional, Paceline Pro</h3>
+          <p>
+            If you choose the AI-tailored plan option, our server sends
+            Anthropic (the provider of the Claude model) your chosen race
+            type, experience level, goal finish time (if any) and weekly
+            schedule preferences, and nothing else: no name, email,
+            account ID, location, health data or free text. The model
+            returns planning numbers that our server turns into your plan.
+            Anthropic acts as our data processor. The standard plan option
+            makes no such call.
           </p>
         </div>
 
@@ -657,6 +672,7 @@
             <tbody>
               <tr><td>Supabase</td><td>Backend hosting, authentication, and database.</td></tr>
               <tr><td>Google</td><td>Sign-In (if you choose that sign-up method); Play Billing / Play Developer API, to process subscription purchases and verify subscription status; and Firebase Cloud Messaging, to deliver push reminders to your device.</td></tr>
+              <tr><td>Anthropic</td><td>Only if you use the AI-tailored plan option: your race type, experience level, goal time and schedule preferences, to propose plan parameters. No account identifier, health data or free text is sent.</td></tr>
               <tr><td>Open-Meteo</td><td>Receives an approximate, rounded location, or the race city you search for and its coordinates, only when you use the race-week brief's forecast features. No account or identifying information is sent with it.</td></tr>
               <tr><td>Sentry (Functional Software, Inc.)</td><td>Crash and error reports, as described above.</td></tr>
               <tr><td>Cloudflare</td><td>Turnstile bot protection on sign-up, sign-in and password reset.</td></tr>
