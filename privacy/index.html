@@ -367,7 +367,7 @@
       </svg>
       Paceline
     </div>
-    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 17, 2026</div>
+    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 22, 2026</div>
   </header>
 
   <div class="hero">
@@ -497,6 +497,35 @@
             shared with anyone. Our use of data received from Health
             Connect follows the Health Connect Permissions policy,
             including its Limited Use requirements.
+          </p>
+        </div>
+
+        <div class="field">
+          <h3>Garmin Connect — optional</h3>
+          <p>
+            If you choose to connect your Garmin account (this option is
+            being added; it is off until you connect), Garmin asks you to
+            approve the connection on its own sign-in page. We never see
+            your Garmin password. We store the access token Garmin gives
+            us, tied to your Paceline account, so we can send your planned
+            workouts to your Garmin watch and, if you allow it, receive the
+            activities, and later the heart-rate and sleep summaries, that
+            Garmin sends us after you sync your device.
+          </p>
+          <p>
+            Garmin data is used only to deliver and adjust your own
+            training plan inside Paceline. We don't sell it, we don't share
+            it with advertisers or data brokers, and we don't use it, or
+            anything derived from it, to train, evaluate or improve AI
+            models. No Garmin data is sent to Anthropic or to any other AI
+            service. The only other party that handles it is our backend
+            provider, Supabase, which stores it for us. You can disconnect
+            Garmin at any time in the app or in your Garmin Connect account
+            settings; disconnecting deletes the access token and stops all
+            new data. Deleting your Paceline account deletes the token and
+            any Garmin data we hold for you. To see, correct or export the
+            Garmin data we hold, write to us at the address under Contact
+            us.
           </p>
         </div>
 
@@ -673,6 +702,7 @@
               <tr><td>Supabase</td><td>Backend hosting, authentication, and database.</td></tr>
               <tr><td>Google</td><td>Sign-In (if you choose that sign-up method); Play Billing / Play Developer API, to process subscription purchases and verify subscription status; and Firebase Cloud Messaging, to deliver push reminders to your device.</td></tr>
               <tr><td>Anthropic</td><td>Only if you use the AI-tailored plan option: your race type, experience level, goal time and schedule preferences, to propose plan parameters. No account identifier, health data or free text is sent.</td></tr>
+              <tr><td>Garmin</td><td>Only if you connect your Garmin account: Garmin receives the workouts we send to your watch and tells us about your activities and, later, health summaries when you sync. Garmin's own privacy policy applies to the data it holds.</td></tr>
               <tr><td>Open-Meteo</td><td>Receives an approximate, rounded location, or the race city you search for and its coordinates, only when you use the race-week brief's forecast features. No account or identifying information is sent with it.</td></tr>
               <tr><td>Sentry (Functional Software, Inc.)</td><td>Crash and error reports, as described above.</td></tr>
               <tr><td>Cloudflare</td><td>Turnstile bot protection on sign-up, sign-in and password reset.</td></tr>
