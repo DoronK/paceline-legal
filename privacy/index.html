@@ -367,7 +367,7 @@
       </svg>
       Paceline
     </div>
-    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 22, 2026</div>
+    <div class="masthead-meta">Privacy Policy<br>Last updated Oct 24, 2026</div>
   </header>
 
   <div class="hero">
@@ -417,8 +417,9 @@
         <ul>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            An account is required to use Paceline — your plan is generated
-            on our server, with no offline mode.
+            An account is required to get your plan — it's generated on
+            our server, with no offline mode. You can answer the setup
+            questions before you create one.
           </li>
           <li>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -445,9 +446,10 @@
         <div class="field">
           <h3>Account information</h3>
           <p>
-            Creating an account is required to use Paceline — building
-            your training plan happens on our server and needs you to be
-            signed in, with no offline mode. You can sign up with an email
+            Creating an account is required to get your training plan —
+            building it happens on our server and needs you to be signed
+            in, with no offline mode. You can answer the setup questions
+            before you create one. You can sign up with an email
             address and password, or with one-tap Google Sign-In. If you
             sign in with Google, Google processes that sign-in per its own
             privacy policy; we receive only your email address and Google
@@ -467,6 +469,26 @@
             replaced. If you complete or reschedule a workout, we record
             that too.
           </p>
+          <p>
+            <strong>Coach setup.</strong> If you set up your plan with the
+            coach (this setup is being added and may not be in your version
+            of the app yet), we keep the choices you make in it, all picked
+            from fixed options: for example what you're working toward, how
+            much you run now, whether you'd rather walk, and whether you
+            chose to share your recent runs. We also keep which version of
+            the questions you saw, how many you were asked and when you
+            finished. There is no free-text box. If the coach suggested any
+            of your settings from your runs (see
+            <em>Suggested settings from your runs</em> below), we keep a
+            record of each suggestion: which setting, the suggested value,
+            whether it came from Health Connect or Garmin, how many days and
+            runs it looked at, how sure it was, the value you ended with, and
+            whether you confirmed it, changed it or it wasn't used. We use
+            these records to build your plan and, looking at all runners
+            together, to check how often suggestions are right so we can
+            make them better (records based on Garmin runs are left out of
+            that check; see <em>Garmin Connect</em>).
+          </p>
         </div>
 
         <div class="field">
@@ -481,6 +503,22 @@
             syncs across your devices.
           </p>
           <p>
+            <strong>Suggested settings from your runs.</strong> If you
+            connect Health Connect while setting up your plan with the
+            coach, the app reads your recent runs from it (by default, the
+            last four weeks) and works out, on your phone, a suggested
+            starting point: how often and on which days you run, your usual
+            long-run day, your experience level and your easy pace. The runs
+            it reads for this aren't uploaded. You see every suggestion and
+            can confirm or change it before your plan is built. The settings
+            you end with become part of your profile and plan, and the record
+            of each suggestion is saved with your account (see
+            <em>Coach setup</em> above). You can do this before you create an
+            account; until you do, only the setup events described under
+            <em>App usage events</em> are sent. Connecting Health Connect here
+            also turns on Activity sync, described above.
+          </p>
+          <p>
             <strong>Recovery insights.</strong> If you separately opt in,
             we also read your heart-rate variability (HRV), resting heart
             rate and sleep sessions (time in bed; sleep on Android only).
@@ -491,12 +529,16 @@
             never uploaded to our servers.
           </p>
           <p>
-            Both are optional and off by default; declining either doesn't
-            affect the rest of the app. Health data is used only to provide
-            these features — never for advertising, never sold, and never
-            shared with anyone. Our use of data received from Health
-            Connect follows the Health Connect Permissions policy,
-            including its Limited Use requirements.
+            All of these are optional and off by default; declining any of
+            them doesn't affect the rest of the app. Health data is used only
+            to provide these features — never for advertising, never sold,
+            and never shared with anyone. We look at health and fitness
+            records only in aggregate: nobody at Paceline reads an individual
+            runner's records unless you ask us to (for example, in a support
+            request), or where needed to keep the service secure or to comply
+            with the law. Our use of data received from Health Connect
+            follows the Health Connect Permissions policy, including its
+            Limited Use requirements.
           </p>
         </div>
 
@@ -528,7 +570,12 @@
           </p>
           <p>
             Garmin data is used only to deliver and adjust your own
-            training plan inside Paceline. We don't sell it, we don't share
+            training plan inside Paceline. That includes suggesting your
+            starting settings from your recent Garmin runs when you set up a
+            plan with the coach; those suggestion records are marked as
+            coming from Garmin and are used only for your own plan, never in
+            the check across all runners described under
+            <em>Coach setup</em>. We don't sell it, we don't share
             it with advertisers or data brokers, and we don't use it, or
             anything derived from it, to train, evaluate or improve AI
             models. No Garmin data is sent to Anthropic or to any other AI
@@ -606,21 +653,43 @@
             account ID, location, health data or free text. The model
             returns planning numbers that our server turns into your plan.
             Anthropic acts as our data processor. The standard plan option
-            makes no such call.
+            makes no such call. Settings the coach suggested from your
+            Health Connect or Garmin runs are never sent to Anthropic, even
+            after you confirm or change them.
           </p>
         </div>
 
         <div class="field">
           <h3>App usage events</h3>
           <p>
-            We record a small, fixed set of in-app events against your
-            account — for example which onboarding step you reached,
-            whether plan generation succeeded, workouts completed, and
-            paywall views and purchases — with the app version, platform,
-            your device's language setting (for example, "he-IL") and a
-            random per-launch session ID. They're stored in our own
-            database, not sent to any analytics company, and used only to
-            understand where the app works and where people get stuck.
+            We record a small, fixed set of in-app events — for example
+            which setup step you reached and what you picked, whether plan
+            generation succeeded, workouts completed, and paywall views and
+            purchases — with the app version, platform, your device's
+            language setting (for example, "he-IL"), a random per-launch
+            session ID and, if you installed Paceline from a link that
+            carries a campaign label, that label. Setup events hold only
+            options and ranges, never free text or exact values from your
+            runs: for example, how many runs were found, which days you run,
+            or a pace range.
+          </p>
+          <p>
+            <strong>Before you have an account.</strong> Events recorded
+            while you're signed out can be sent to us before you have an
+            account. They're tagged with a random install ID that the app
+            creates and keeps on your phone. It isn't your
+            advertising ID or a hardware identifier, and these events carry
+            no name, email, account ID or location. When you sign in or
+            create an account on that install, we link its earlier events to
+            your account, so we can see which setup steps lead to a plan;
+            from then on they're kept and deleted like the rest of your
+            usage events. Events from an install that never signs in are
+            deleted after 90 days.
+          </p>
+          <p>
+            Usage events are stored in our own database, not sent to any
+            analytics company, and used only to understand where the app
+            works and where people get stuck.
           </p>
         </div>
 
@@ -671,6 +740,7 @@
         <ul>
           <li>Create and maintain your account.</li>
           <li>Generate and adjust your training plan.</li>
+          <li>Suggest your plan's starting settings from your recent runs, if you share them.</li>
           <li>Sync your profile and plan across your devices.</li>
           <li>Fetch a race-day weather forecast, if you ask for one.</li>
           <li>Reply to a beta-access request you sent from our website.</li>
@@ -740,6 +810,11 @@
             Profile&nbsp;→&nbsp;Health section.
           </li>
           <li>
+            When you set up a plan with the coach, you can skip sharing your
+            runs and answer a few more questions instead, and you can confirm
+            or change every suggested setting before your plan is built.
+          </li>
+          <li>
             You can decline the race-week weather forecast's location
             request at any time it's asked; it's never required to use
             the app.
@@ -759,19 +834,23 @@
       <section class="doc" id="retention">
         <h2>Data retention and deletion</h2>
         <p>
-          We keep your account, profile, training plans, usage events,
-          subscription status and reminder log for as long as your account
-          exists, including past plans you've replaced. Data kept only on
-          your device (recovery summaries, on-device reminders) is removed
-          when you uninstall the app. Crash reports are deleted
+          We keep your account, profile, training plans, coach setup
+          answers and suggestion records, usage events, subscription status
+          and reminder log for as long as your account exists, including
+          past plans you've replaced. Usage events from an install that
+          never signed in are deleted after 90 days. Data kept only on your
+          device (recovery summaries, on-device reminders, the install ID)
+          is removed when you uninstall the app. Crash reports are deleted
           automatically by Sentry after at most 90 days.
         </p>
         <p>
           To delete your account, open the app and go to
           Profile&nbsp;→&nbsp;Delete&nbsp;account. This permanently removes
           your account and all associated data from our database —
-          profile, plans and past plans, usage events, subscription
-          record, push token and reminder log — straight away (routine backups and logs held by our
+          profile, plans and past plans, coach setup answers and
+          suggestion records, usage events (including those recorded on
+          your phone before you signed in), subscription record, push token
+          and reminder log — straight away (routine backups and logs held by our
           database provider expire on their normal schedule). The steps,
           and what is and isn't removed, are on
           <a href="/delete-account/">pacelinerun.com/delete-account</a>.
