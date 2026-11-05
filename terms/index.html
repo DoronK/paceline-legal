@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Paceline Terms of Service</title>
 <meta name="description" content="The terms of service for the Paceline running-training app: your account, the free plan and Paceline Pro, health and safety, third-party services, and your rights.">
-<!-- DRAFT: keeps the unreviewed draft out of search results. TODO(owner): remove this line, the draft banner and every TODO(owner) marker before publishing. -->
-<meta name="robots" content="noindex">
 <link rel="canonical" href="https://pacelinerun.com/terms/">
 <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -356,46 +354,6 @@
     .mobile-toc { display: block; }
   }
 
-  /* Terms-only additions. TODO markers and the draft banner exist only
-     while this page is a draft; delete these rules with them. */
-  :root {
-    --todo-bg: #FFF1C2;
-    --todo-text: #5A3B00;
-    --todo-border: #E8C25A;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --todo-bg: #3A2C05;
-      --todo-text: #FFDE85;
-      --todo-border: #7A5E12;
-    }
-  }
-
-  .draft-banner {
-    margin: 24px 0 0;
-    padding: 14px 18px;
-    border: 1px solid var(--todo-border);
-    border-radius: 14px;
-    background: var(--todo-bg);
-    color: var(--todo-text);
-    font-size: 0.92rem;
-    max-width: 66ch;
-  }
-  .draft-banner strong { font-weight: 600; }
-
-  mark.todo {
-    background: var(--todo-bg);
-    color: var(--todo-text);
-    border: 1px solid var(--todo-border);
-    border-radius: 6px;
-    padding: 1px 6px;
-    font-size: 0.88em;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-  section.doc li mark.todo, section.doc .field p mark.todo { color: var(--todo-text); }
-
-  p.todo-block { margin: 0 0 14px; }
 </style>
 </head>
 <body>
@@ -411,7 +369,7 @@
       </svg>
       Paceline
     </div>
-    <div class="masthead-meta">Terms of Service<br>Draft, not yet in effect</div>
+    <div class="masthead-meta">Terms of Service<br>Last updated Nov 5, 2026</div>
   </header>
 
   <div class="hero">
@@ -419,15 +377,8 @@
     <p class="lede">
       The rules for using Paceline, written in plain terms and matching
       what the app actually does. Paceline is developed and operated by
-      Delta Kernel Labs, an individual developer ("we", "us"), the
-      developer listed on Google Play.
-      <mark class="todo">TODO(owner): add a postal address (a PO box or
-      mailbox is fine). Confirm "individual developer" is accurate.</mark>
-    </p>
-    <p class="draft-banner" role="note">
-      <strong>Draft for review.</strong> These terms are not in effect.
-      Every item marked TODO(owner) is a legal choice the owner has to
-      make or confirm before this page is published.
+      Delta Kernel Labs ("we", "us"), the developer listed on Google
+      Play, Roy Klein 2, Ramat-Gan 5233696, Israel.
     </p>
   </div>
 
@@ -528,7 +479,7 @@
         </p>
         <ul>
           <li>
-            You must be at least 16 years old to use Paceline.
+            You must be at least 13 years old to use Paceline.
           </li>
           <li>Give accurate information. Your plan is only as good as what you tell us.</li>
           <li>Keep your sign-in details to yourself. You're responsible for what happens in your account.</li>
@@ -592,8 +543,8 @@
           <h3>Paceline Pro</h3>
           <p>
             Paceline Pro is an optional subscription that adds the features
-            marked Pro in the app. Its price, billing period and any free
-            trial are shown on the purchase screen before you pay.
+            marked Pro in the app. Its price and billing period are shown on
+            the purchase screen before you pay.
           </p>
           <ul>
             <li>
@@ -603,12 +554,7 @@
             </li>
             <li>
               <strong>It renews automatically</strong> at the end of each
-              billing period until you cancel. If you start with a free
-              trial, Google Play charges you when the trial ends unless you
-              cancel before then.
-              <mark class="todo">TODO(owner): confirm whether a free trial
-              is configured in Play Console (the 2026-08-29 design planned
-              7 days).</mark>
+              billing period until you cancel.
             </li>
             <li>
               <strong>Cancel any time</strong> in the Play Store
@@ -755,9 +701,8 @@
         <h2>Governing law</h2>
         <p>
           These terms are governed by the laws of
-          <mark class="todo">TODO(owner): country or state</mark>,
-          and disputes go to the courts of
-          <mark class="todo">TODO(owner): place</mark>.
+          the State of Israel, and the courts of Tel Aviv-Yafo, Israel,
+          have exclusive jurisdiction over disputes about them.
           If you live in the EU or UK, you can also bring a claim in your
           own country's courts, and its mandatory consumer laws still
           apply to you.
@@ -785,10 +730,9 @@
       <section class="doc" id="contact">
         <h2>Contact us</h2>
         <p>
-          Privacy requests:
+          Questions about these terms, billing, privacy requests, or help
+          with Paceline:
           <a href="mailto:privacy@pacelinerun.com">privacy@pacelinerun.com</a>.
-          Questions about these terms, billing, or help with Paceline:
-          <a href="mailto:support@pacelinerun.com">support@pacelinerun.com</a>.
         </p>
       </section>
 
