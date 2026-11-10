@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A free Runna alternative that adapts to your recovery - Paceline</title>
+<meta name="description" content="Looking for a Runna alternative that's free? Paceline gives you the full adaptive running plan without a subscription or a watch. Where it's different, where Runna is ahead, prices side by side. Checked 10 November 2026.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/runna-alternative/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="A free Runna alternative that adapts to your recovery">
+<meta property="og:description" content="The full adaptive plan is free: no trial countdown, no watch required. Where Paceline is different, and where Runna is ahead.">
+<meta property="og:url" content="https://pacelinerun.com/runna-alternative/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. Same tokens as /vs-runna/. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; box-shadow: var(--shadow-sm); overflow: hidden; }
+  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { font-family: var(--font-display); font-size: 0.95rem; }
+  tr:last-child td { border-bottom: none; }
+  td:first-child, th:first-child { width: 42%; }
+  .faq { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .faq details { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 4px 20px; box-shadow: var(--shadow-sm); }
+  .faq details[open] { border-color: var(--accent-soft-strong); }
+  .faq summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; padding: 12px 0; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; float: right; color: var(--accent); font-weight: 700; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq p { margin: 0 0 14px; }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Paceline really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every distance, every week of the plan, the adaptation engine, notifications and fueling guidance are free, with no trial countdown. An optional Pro subscription ($49.99 a year or $6.99 a month) adds a race-week brief, a recovery view, a periodization override and progress trends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work without a Garmin or Apple Watch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Paceline is a planning layer on your Android phone, not a watch app. Recovery signals come from Health Connect (HRV, resting heart rate, time in bed), and you keep using whatever you already use to record the run itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it adjust my plan when I'm sick or run down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A built-in not-feeling-100% mode lightens your load and ramps you back, and recovery-based trims propose shortening an upcoming long run when at least two of HRV, resting heart rate and sleep point to fatigue. Every change is explained, needs your approval, and can be undone."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+  </header>
+
+  <main>
+    <h1>A free Runna alternative that adapts to your recovery</h1>
+    <p class="checked">Checked on 10 November 2026. Prices and limits change; if something here is out of date, <a href="mailto:hello@pacelinerun.com">tell us</a>.</p>
+
+    <p>Runna earned its reputation: it's polished, it syncs workouts to your watch, it has strength plans and a big coaching library. If you want to be guided through every run on your wrist and you're happy paying for it, Runna is genuinely good and you should probably just pay for it. This page is for the runners who searched for a Runna alternative because the subscription is the problem.</p>
+
+    <div class="summary">
+      <p><strong>The short version:</strong> Paceline is a free Android app whose whole training plan, every distance, every week, is free with no trial countdown. The plan adapts to how recovered you are, explains every change, and waits for your approval. Runna Premium is $19.99 a month or $119.99 a year after a 7-day trial.</p>
+    </div>
+
+    <h2>Where Paceline is different</h2>
+
+    <div class="point"><strong>The full adaptive plan is free. No trial countdown.</strong> Every distance from 5K to 100K, every week, adaptation, notifications and fueling guidance. There is no timer running out on week one and no card on file. Pro is optional ($49.99 a year or $6.99 a month) and adds extras like a race-week brief and progress trends; the plan itself never sits behind it.</div>
+
+    <div class="point"><strong>It adapts to recovery, not just pace.</strong> Connect Health Connect and Paceline reads HRV, resting heart rate and time in bed. When at least two of the three point to fatigue, it proposes trimming an upcoming long run. It never adds volume on its own, and Runna says heart-rate data &ldquo;will not influence your training plan&rdquo;.</div>
+
+    <div class="point"><strong>Every change is explained and approved by you.</strong> When the plan changes, Paceline says what changed and why before it happens, and you can undo it. Your plan never silently shifts under you.</div>
+
+    <div class="point"><strong>No watch required.</strong> Paceline lives on your Android phone as a planning layer. Record runs with whatever you already use; you don't need a Garmin, an Apple Watch or anything else on your wrist to get the full plan.</div>
+
+    <h2>Where Runna is better</h2>
+    <p>Honesty beats a sales pitch, so: Runna has an iOS app (Paceline is Android only), watch apps that push workouts to Garmin, Apple Watch, COROS, Suunto and Amazfit, strength and mobility programmes, in-run audio coaching, and years of track record from a large team. Paceline is built by one developer and is newer. If those matter more to you than the price, Runna is the right call. For the full feature-by-feature breakdown, see <a href="/vs-runna/">Paceline vs Runna</a>.</p>
+
+    <h2>Price, side by side</h2>
+    <table>
+      <tr><th></th><th>Paceline</th><th>Runna</th></tr>
+      <tr><td>Full training plan</td><td>Free</td><td>$119.99/yr or $19.99/mo, after a 7-day free trial</td></tr>
+      <tr><td>With Strava included</td><td>Not applicable</td><td>Strava + Runna bundle, $149.99/yr</td></tr>
+      <tr><td>Optional extras</td><td>Pro: $49.99/yr or $6.99/mo</td><td>Included in Premium</td></tr>
+    </table>
+    <p class="fine">Runna and Strava prices checked on runna.com/pricing and strava.com/pricing on 10 November 2026 (US pricing).</p>
+
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Is Paceline really free?</summary>
+        <p>Yes. Every distance, every week of the plan, the adaptation engine, notifications and fueling guidance are free, with no trial countdown. An optional Pro subscription ($49.99 a year or $6.99 a month) adds a race-week brief, a recovery view, a periodization override and progress trends.</p>
+      </details>
+      <details>
+        <summary>Does it work without a Garmin or Apple Watch?</summary>
+        <p>Yes. Paceline is a planning layer on your Android phone, not a watch app. Recovery signals come from Health Connect (HRV, resting heart rate, time in bed), and you keep using whatever you already use to record the run itself.</p>
+      </details>
+      <details>
+        <summary>Can it adjust my plan when I'm sick?</summary>
+        <p>Yes. A built-in not-feeling-100% mode lightens your load and ramps you back, and recovery-based trims propose shortening an upcoming long run when at least two of HRV, resting heart rate and sleep point to fatigue. Every change is explained, needs your approval, and can be undone.</p>
+      </details>
+    </div>
+
+    <h2>Try it</h2>
+    <p>The plan, the adaptation, the fueling numbers: all free. Install it, answer a few questions, and your first week is on the calendar in a couple of minutes.</p>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Drunna-alt%26utm_source%3Dsite%26utm_medium%3Drunna-alternative">Get the free plan on Google Play</a>
+    <p class="fine">Paceline is on Google Play (Android). Runna and Strava are trademarks of their owners; Paceline is not affiliated with them.</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/vs-runna/">Paceline vs Runna</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
