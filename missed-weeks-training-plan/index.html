@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missed weeks of training? How to get your plan back on track | Paceline</title>
+<meta name="description" content="Missed a few weeks of your race plan? What to skip, what to rebuild, and how Paceline resets the plan to your race day.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/missed-weeks-training-plan/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="Missed weeks of training? How to get your plan back on track | Paceline">
+<meta property="og:description" content="What to skip, what to rebuild, and how Paceline resets a plan after missed training weeks.">
+<meta property="og:url" content="https://pacelinerun.com/missed-weeks-training-plan/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 500; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+  </header>
+
+  <main>
+    <h1>Missed weeks of training? Get your plan back on track</h1>
+    <p class="checked">Last reviewed 16 November 2026. This is general information, not medical or coaching advice. If you were ill or hurt, get that sorted first.</p>
+
+    <p>Illness, travel, a bad month at work. Most plans are written for the runner who never misses a week. Here is how to decide what to do, and what Paceline does.</p>
+
+    <h2>First: how long was the gap?</h2>
+    <ul>
+      <li><strong>A few days or one week:</strong> pick the plan up where it is. Skip the missed runs. Do not cram them in.</li>
+      <li><strong>Two to four weeks, with 12 or more weeks to a marathon:</strong> rebuild the plan from today to the same race day. The plan gets shorter and the build is compressed.</li>
+      <li><strong>A gap that leaves too few weeks:</strong> skip the missed runs and carry on, and treat race day more cautiously.</li>
+    </ul>
+
+    <h2>What Paceline offers</h2>
+    <p>Paceline can rebuild your plan from today and keep your race day. It shows a review screen first, and tells you when long runs restart lower than they were. If a rebuild is not possible, it offers to skip the missed runs and carry on.</p>
+
+    <p>What it did in one test, a 4-days-a-week intermediate runner with a marathon on 7 March 2027 (simulated on 16 October 2026):</p>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>Missed</th><th>Rebuild offered?</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>2 weeks</td><td>Yes, 14 weeks left</td><td>Peak long run 33 km, week 1 about 25.5 km, shortest run 5 km</td></tr>
+        <tr><td>3 weeks</td><td>Yes, 13 weeks</td><td>Peak long run 31 km</td></tr>
+        <tr><td>4 weeks</td><td>Yes, 12 weeks (the minimum)</td><td>Peak long run 29 km</td></tr>
+        <tr><td>5 weeks</td><td>No, not enough weeks</td><td>Skip the missed runs and carry on</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Half marathon: with 2 weeks missed, 10 weeks remain and the peak long run is 15.5 km (original 18). With 4 weeks missed, 8 weeks remain and the peak is 13.5 km.</p>
+
+    <h2>Things to know</h2>
+    <ul>
+      <li>The rebuild restarts from your baseline, not from where you had got to. A runner who had built to 25 km long runs restarts at about 13 km.</li>
+      <li>These numbers are from one simulated runner, not an average. They can change when the plan generator changes.</li>
+      <li>The test did not cover ultras, or 2-, 3-, 5- or 6-day weeks.</li>
+    </ul>
+
+    <h2>If you are ill or injured</h2>
+    <p>Paceline has a recovery break that eases you back in. It is separate from the rebuild.</p>
+
+    <h2>Common questions</h2>
+    <div class="point"><strong>Should I add the missed miles back in?</strong> No. Drop them rather than squeeze them in.</div>
+    <div class="point"><strong>What if I am under 12 weeks from a marathon?</strong> A rebuild is not offered. Paceline offers to skip the missed runs and carry on.</div>
+    <div class="point"><strong>Does it cost anything?</strong> The whole plan is free on Android, including the rebuild and the recovery break.</div>
+
+    <p>See also: <a href="/training-plans/">marathon and ultramarathon plans</a>.</p>
+
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dmissed-weeks%26utm_source%3Dsite%26utm_medium%3Dmissed-weeks">Get Paceline on Google Play</a>
+    <p class="fine">Paceline is on Google Play (Android).</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
