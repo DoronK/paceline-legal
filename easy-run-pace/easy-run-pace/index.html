@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Easy run pace for beginners: effort before speed | Paceline</title>
+<meta name="description" content="How to judge an easy run by conversational effort, read a pace target without chasing it, and use your first running plan without a fixed beginner speed.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/easy-run-pace/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="Easy run pace for beginners: effort before speed | Paceline">
+<meta property="og:description" content="No universal min/km target. Learn what conversational effort means before your first running plan.">
+<meta property="og:url" content="https://pacelinerun.com/easy-run-pace/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .site-nav { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.92rem; }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  .site-nav a:hover { color: var(--text-primary); }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 500; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/training-plans/">Training plans</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-easy-pace%26utm_source%3Dsite%26utm_medium%3Deasy-run-pace">Get the app</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Easy run pace: effort before speed</h1>
+    <p class="checked">Sources checked 18 November 2026. General training information, not an individual training or medical prescription.</p>
+
+    <div class="summary">
+      <p><strong>There is no single easy pace for beginners.</strong> On an easy run, aim for an effort where you can speak comfortably in full sentences. A number on a plan is a guide, not a reason to force the pace when that effort no longer feels easy.</p>
+    </div>
+
+    <h2>What does conversational pace mean?</h2>
+    <p>Try saying a sentence aloud while moving. Could you answer a running partner without gasping or breaking it into a few words at a time? That is a more useful starting check than matching someone else's speed.</p>
+    <p>If conversation is difficult on an easy day, slow down and check again. Walking breaks are an option. You do not need to make running uncomfortable to prove that the session counts.</p>
+    <p>The talk test is a rough effort check, not a diagnosis or a precise heart-rate zone. The CDC uses it to distinguish relative moderate and vigorous activity; running coaches also use conversational effort to explain easy running. Those are related ideas, not interchangeable training-zone definitions.</p>
+
+    <h2>Read a pace target without racing it</h2>
+    <p>Pace is time per distance, such as minutes per kilometre or minutes per mile. A larger time means a slower pace. Speed, such as kilometres per hour, works the other way round.</p>
+    <p>Before starting a session, check its purpose as well as its distance or duration. If it says easy, the aim is easy effort. A goal finish time, another runner's pace or the number your watch displays does not make a hard effort easy.</p>
+    <ul>
+      <li><strong>Start comfortably.</strong> Give yourself room to settle in rather than trying to bank a fast opening.</li>
+      <li><strong>Check during the run.</strong> If speaking becomes difficult, ease off rather than defending the original number.</li>
+      <li><strong>Review afterwards.</strong> If an easy session repeatedly feels hard, reconsider the session and get individual help if needed. Do not assume the answer is to push harder next time.</li>
+    </ul>
+
+    <h2>Why the same pace can feel different</h2>
+    <p>Easy describes your effort, not a permanent speed. A pace that feels comfortable when you are rested may feel harder when you are tired. That is why an effort check is useful alongside a plan, rather than only looking at the average pace after the run.</p>
+    <p>You do not have to chase a particular heart-rate percentage to use this guide. Heart-rate zones and perceived-effort scales depend on how they are defined. If you are working with a coach or clinician, follow the guidance intended for you rather than combining several systems into one target.</p>
+
+    <h2>What if even slow running feels hard?</h2>
+    <p>Walking is a way to lower the effort, not a failed run. A run/walk plan may be a better starting point than trying to run continuously. The NHS beginner programme uses alternating running and walking; it is a different programme from Paceline, not evidence that any two plans are equivalent.</p>
+    <p>If pain, illness or unusual symptoms are the reason running feels difficult, do not use the talk test as clearance to continue. Stop if something feels wrong and seek advice from a qualified health professional. For a training interruption, see <a href="/missed-weeks-training-plan/">what to consider after missed training weeks</a>.</p>
+
+    <h2>Put the effort into a plan, not a competition</h2>
+    <p>To see how easy runs fit into a week, browse the <a href="/training-plans/5k-training-plan-beginner/">beginner 5K sample</a> or <a href="/training-plans/10k-training-plan-beginner/">beginner 10K sample</a>. These are examples, not proof that their starting load suits every runner.</p>
+    <p>Paceline is a released Android running-plan app. The whole plan is free. It is a planning layer, not an in-app run recorder or a source of live voice cues. Read <a href="/free-running-plan-app/">what Paceline does and does not do</a> before choosing it. No app can infer every reason an easy run felt hard from a pace number alone.</p>
+
+    <h2>Sources and limits</h2>
+    <ul>
+      <li><a href="https://www.runnersworld.com/beginner/a71605580/beginner-runner-faqs/">Runner's World beginner FAQ</a>, June 2026: coach guidance on slowing down and speaking in full sentences.</li>
+      <li><a href="https://therunningchannel.com/what-is-an-easy-run/">The Running Channel: what is an easy run?</a> Easy effort can vary from day to day.</li>
+      <li><a href="https://www.cdc.gov/physical-activity-basics/measuring/">CDC: measuring physical activity intensity</a>, December 2025: relative intensity and the talk test. This is public-health guidance, not a prescribed running zone.</li>
+      <li><a href="https://www.nhs.uk/better-health/get-active/get-running-with-couch-to-5k/couch-to-5k-running-plan/">NHS beginner running plan</a>: running and walking as a starting structure, with rest and attention to how you feel.</li>
+    </ul>
+    <p class="fine">This guide does not calculate your easy pace, prescribe a heart-rate zone or promise a race result.</p>
+
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-easy-pace%26utm_source%3Dsite%26utm_medium%3Deasy-run-pace">Get Paceline on Google Play</a>
+    <p class="fine">Android. A free account and internet connection are needed to build a plan.</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/free-running-plan-app/">Free running plan app</a>
+      <a href="/missed-weeks-training-plan/">Missed weeks? Your plan adapts</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
