@@ -1,0 +1,29 @@
+name: Static site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html-and-links:
+    name: HTML structure and local links
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Test the checker
+        run: python3 scripts/check_site.py --self-test
+      - name: Check HTML and internal links
+        run: python3 scripts/check_site.py
