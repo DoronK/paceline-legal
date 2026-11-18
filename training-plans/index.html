@@ -32,10 +32,14 @@ td.wk,th:first-child{position:sticky;left:0;background:var(--surface);box-shadow
 .hint{display:none;color:var(--muted);font-size:14px;margin:0 0 8px}@media (max-width:760px){.hint{display:block}}
 a{color:var(--accent)}ul.links{padding-left:20px}
 footer{border-top:1px solid var(--divider);margin-top:48px;padding:20px 0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:20px 0}
+.card{background:var(--surface);border:1px solid var(--divider);border-radius:14px;padding:16px}
+.card a{font-weight:600;text-decoration:none}
+.card p{margin:6px 0 0;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-<header><div class="shell"><a class="wordmark" href="/"><img src="/img/paceline-icon.png" alt="" width="22" height="22" style="border-radius:5px;vertical-align:-4px;margin-right:8px">Paceline</a></div></header>
+<header><div class="shell" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><a class="wordmark" href="/"><img src="/img/paceline-icon.png" alt="" width="22" height="22" style="border-radius:5px;vertical-align:-4px;margin-right:8px">Paceline</a><a href="/training-plans/">Training plans</a></div></header>
 <main class="shell">
 
 <h1>Marathon and ultramarathon training plans</h1>
@@ -54,6 +58,10 @@ footer{border-top:1px solid var(--divider);margin-top:48px;padding:20px 0;color:
 <li><a href="/training-plans/100k-ultramarathon-training-plan-intermediate/">100K ultramarathon training plan, intermediate</a> (24 weeks)</li>
 <li><a href="/training-plans/100k-ultramarathon-training-plan-advanced/">100K ultramarathon training plan, advanced</a> (24 weeks)</li>
 </ul>
+<h2>More from Paceline</h2>
+<div class="cards">
+<div class="card"><a href="/free-running-plan-app/">Free running plan app</a><p>A free running plan that adapts when you miss runs, and what it does not do.</p></div>
+</div>
 <h2>How the ultra plans work</h2>
 <div class="scroll"><table>
 <thead><tr><th>Race</th><th>Default plan length</th><th>Shortest plan Paceline builds</th><th>Taper</th></tr></thead>
@@ -79,6 +87,6 @@ footer{border-top:1px solid var(--divider);margin-top:48px;padding:20px 0;color:
 <div class="cta"><p>Want a plan counted back from your own race date? Paceline builds it for free.</p><a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-hub%26utm_source%3Dseo%26utm_medium%3Dhub">Get Paceline on Android</a></div>
 
 </main>
-<footer><div class="shell">&copy; 2026 Paceline &middot; <a href="/">Home</a> &middot; <a href="/training-plans/">All plans</a> &middot; <a href="/privacy/">Privacy Policy</a></div></footer>
+<footer><div class="shell">&copy; 2026 Paceline &middot; <a href="/">Home</a> &middot; <a href="/training-plans/">All plans</a> &middot; <a href="/free-running-plan-app/">Free running plan app</a> &middot; <a href="/missed-weeks-training-plan/">Missed weeks? Your plan adapts</a> &middot; <a href="/privacy/">Privacy Policy</a></div></footer>
 </body>
 </html>
