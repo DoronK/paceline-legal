@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Running plan without a smartwatch: what you need | Paceline</title>
+<meta name="description" content="You can use a running plan without a smartwatch. Learn the difference between planning and tracking, what to check first, and how Paceline works on Android.">
+<link rel="canonical" href="https://pacelinerun.com/running-plan-without-watch/"><link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Paceline"><meta property="og:title" content="Running plan without a smartwatch: what you need | Paceline"><meta property="og:description" content="You can use a running plan without a smartwatch. Learn the difference between planning and tracking, what to check first, and how Paceline works on Android."><meta property="og:url" content="https://pacelinerun.com/running-plan-without-watch/"><meta property="og:image" content="https://pacelinerun.com/img/og-card.png"><meta property="og:image:alt" content="Paceline running training plans"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .site-nav { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.92rem; }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  .site-nav a:hover { color: var(--text-primary); }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 500; }
+  .scroll { overflow-x: auto; }
+
+.watch-guide{max-width:800px}.watch-guide h2{margin-top:2rem}.watch-guide li{margin:.65rem 0}.watch-guide .eyebrow{font-size:.85rem;color:var(--text-secondary);margin:40px 0 0}.watch-guide h1{margin-top:8px}.lede{font-size:1.15rem;color:var(--text-secondary)}.watch-guide .cta{margin:2rem 0;padding:1.25rem;border:1px solid var(--divider);border-radius:16px}.watch-guide .btn{white-space:normal;text-align:center;max-width:100%}
+</style></head><body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/training-plans/">Training plans</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-no-watch%26utm_source%3Dseo%26utm_medium%3Dseo-no-watch">Get the app</a>
+    </nav>
+  </header>
+<main class="watch-guide">
+<p class="eyebrow">Paceline guide · Reviewed 18 November 2026</p>
+<h1>A running plan without a smartwatch</h1>
+<p class="lede">A watch can measure a run. A training plan tells you what to do next. You do not have to buy the first to use the second.</p>
+<p><strong>You can build a Paceline plan without a smartwatch.</strong> It is an Android planning app, with optional connections for training and recovery data. It is not a GPS tracker or an audio guide. That distinction matters more than the watch you own.</p>
+<h2>Start with the plan, not the equipment</h2>
+<p>Before choosing an app or buying a watch, look at the running you already do, the days you can set aside and the goal you want to work toward. Compare a sample plan's first week with your current routine, not only its race distance or number of weeks.</p>
+<p>A plan is not automatically suitable because it says "beginner". If you are returning after illness or injury, or have a health concern, get individual advice. A date on the calendar is not a reason to run through pain or skip the preparation you need.</p>
+<p>For a starting point, browse the <a href="/training-plans/">week-by-week sample plans</a>. They are examples with stated inputs, not personal prescriptions or guarantees that you will be ready for race day.</p>
+<h2>Planning and tracking are different jobs</h2>
+<ul>
+<li><strong>The plan:</strong> your running days, the planned sessions and how the weeks lead toward your goal.</li>
+<li><strong>The record:</strong> what you actually ran, such as time and distance. A separate phone tracker or a watch can measure that. A simple training journal is another way to keep a record, but it does not measure pace for you.</li>
+<li><strong>The prompts:</strong> spoken instructions, live pace alerts or workouts on your wrist. Those need a tool that provides them. Paceline does not record runs, give voice coaching or deliver workouts to a watch in the public app.</li>
+</ul>
+<p>If you want one app to speak each interval while it records your route, Paceline is not that all-in-one tool. If you want to read a schedule and use the tracker you choose separately, it may fit.</p>
+<h2>What Paceline needs, and what is optional</h2>
+<p>To build a plan, you need an Android phone, a free account and an internet connection. You choose your race, dates and running schedule. The whole training plan is free; Pro extras are optional.</p>
+<p><strong>A watch and Health Connect are optional.</strong> Without connected recovery data, do not expect recovery-based suggestions to know how you slept or what your heart-rate signals look like. Your plan and your logged training are different from a live recovery measurement.</p>
+<p>With suitable data connected through Health Connect, Paceline can propose trimming an upcoming long run when at least two of HRV, resting heart rate and time in bed point to fatigue. That recovery trim never adds volume, and you review it before it changes the plan. Owning a watch alone does not guarantee that the required data is available.</p>
+<p>See the <a href="/free-running-plan-app/">full free-app scope and limitations</a> before deciding whether it is the tool you want.</p>
+<h2>A simple way to use a watch-free plan</h2>
+<ol>
+<li><strong>Before the run:</strong> read the planned session and decide how you will keep track of any distance or time it calls for. Paceline will not measure those for you.</li>
+<li><strong>During the run:</strong> use a separate tracker or timer if you need one. Do not expect spoken prompts from the plan page or from Paceline.</li>
+<li><strong>After the run:</strong> keep a record of what actually happened, rather than treating the planned session as proof that it was completed. Review how you felt as well as any numbers you measured.</li>
+<li><strong>If your week changes:</strong> do not squeeze missed sessions together just to clear a list. Read <a href="/missed-weeks-training-plan/">how missed training weeks are handled</a> and review the plan you can realistically follow.</li>
+</ol>
+<h2>Do you need a watch later?</h2>
+<p>That depends on the problem you want it to solve. Convenient pace checks, a training record and connected recovery data are different needs. Work out which is missing from your routine before buying more equipment. A watch is optional equipment, not a promise of progress or a substitute for a plan that fits you.</p>
+<div class="cta"><h2>Want a plan for your running days?</h2><p>Paceline builds a full training plan on Android. Account and internet needed to build. No watch required; no run recording or voice coaching.</p><a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-no-watch%26utm_source%3Dseo%26utm_medium%3Dseo-no-watch">Get Paceline on Android</a></div>
+<h2>Sources and scope</h2>
+<p>This is a Paceline product guide, not medical advice or a personal coaching prescription. General equipment and plan-selection guidance:</p>
+<ul><li><a href="https://www.bbc.com/sport/articles/cgk8jegyz2no">BBC Sport: do you need expensive equipment to start?</a> (9 January 2026)</li><li><a href="https://www.rei.com/learn/expert-advice/running-basics.html">REI: starting running and optional tracking equipment</a></li><li><a href="https://www.runnersworld.com/uk/training/a773461/how-to-find-the-perfect-training-plan/">Runner's World: choosing a plan that fits your starting point</a> (updated 10 June 2022)</li></ul>
+<p>Product details were checked on the review date above and can change. No training result, readiness or finish time is guaranteed.</p>
+</main>
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/free-running-plan-app/">Free running plan app</a>
+      <a href="/missed-weeks-training-plan/">Missed weeks? Your plan adapts</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body></html>
