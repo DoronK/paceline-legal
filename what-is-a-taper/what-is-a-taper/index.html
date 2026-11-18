@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is a taper? Why running plans ease off before a race | Paceline</title>
+<meta name="description" content="A taper is a planned reduction in training before a race, not a catch-up week. Understand the idea without a one-size-fits-all schedule or performance promise.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/what-is-a-taper/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="What is a taper? Why running plans ease off before a race | Paceline">
+<meta property="og:description" content="A taper is a planned reduction in training before a race, not a catch-up week. Understand the idea without a one-size-fits-all schedule or performance promise.">
+<meta property="og:url" content="https://pacelinerun.com/what-is-a-taper/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .site-nav { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.92rem; }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  .site-nav a:hover { color: var(--text-primary); }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 500; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/training-plans/">Training plans</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-taper%26utm_source%3Dsite%26utm_medium%3Dwhat-is-a-taper">Get the app</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>What is a taper in a running plan?</h1>
+    <p class="checked">Sources checked 18 November 2026. General information, not an individual training or medical prescription.</p>
+
+    <div class="summary">
+      <p><strong>A taper is a planned reduction in training before a race.</strong> The idea is to arrive with less accumulated fatigue, rather than keep adding work until race day. It is part of the plan, not a week for catching up on missed sessions or proving you can cover the distance.</p>
+    </div>
+
+    <h2>Why does the plan get lighter?</h2>
+    <p>Training and recovery belong together. A taper reduces the training load near an event so that the demands of recent training can ease. That does not mean the previous weeks were wasted, or that you should replace the shorter runs with extra hard exercise.</p>
+    <p>Lower volume is not necessarily complete rest. A plan may keep some running while shortening sessions. The actual mix depends on the plan, your training and the event. This guide does not prescribe how many days to run, how far to cut back or what pace to use.</p>
+
+    <h2>Use your plan, not someone else's final week</h2>
+    <p>A runner coming off a high-mileage marathon build and someone preparing for a first short race do not have the same training behind them. A taper copied from another runner can be the wrong size for your week.</p>
+    <p>Read the final part of the plan you have been following. Look at the running, rest and other exercise together. If the instructions are unclear, ask the plan's coach or a qualified coach rather than splice together several taper recipes.</p>
+
+    <h2>It is not catch-up week</h2>
+    <p>It can feel strange to run less when race day is close. That feeling is not a reason to add an unscheduled long run, an all-out test or extra hard cross-training. A taper is not designed to replace training missed earlier in the build.</p>
+    <p>If illness, injury or a large training gap has changed your situation, the question is bigger than which taper to use. Get individual advice about the plan and race. See <a href="/missed-weeks-training-plan/">what to consider after missed training weeks</a>; cleaning up a calendar is not the same as establishing that you are ready to race.</p>
+
+    <h2>What the research can and cannot tell you</h2>
+    <p>Research supports studying a planned reduction in training before competition, but it does not give every runner one guaranteed formula. A 2023 review combined studies of well-trained endurance athletes, mostly men. Its averages are not an individual prescription for a beginner.</p>
+    <p>A large study of recreational marathon training found associations between taper patterns and race performance. It could not account for every runner's injury, weather or race circumstances, and an association is not proof of what changing your own taper will do. A small half-marathon study found no performance improvement despite a reduction in a muscle-damage marker.</p>
+    <p>The useful takeaway here is the concept, not a promised number of minutes saved: a taper is planned recovery within a training programme. It cannot guarantee a personal best, make up for missing training or confirm that it is safe for you to race.</p>
+
+    <h2>Reading the Paceline examples</h2>
+    <p>The <a href="/training-plans/">sample training plans</a> show their own taper periods and final weeks. Those are parts of specific examples, not a universal timetable. Check the starting requirements as well as the end of a plan before choosing it.</p>
+    <p>Paceline is a planning-only Android app, and the whole training plan is free. Read <a href="/free-running-plan-app/">what it does and does not do</a>. Neither an app calendar nor this guide can assess an injury or guarantee race readiness.</p>
+
+    <h2>Sources and limits</h2>
+    <ul>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10171681/">2023 systematic review of tapering in endurance athletes</a>: trained-athlete evidence with limits by event, training status and sex.</li>
+      <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8506252/">2021 study of recreational marathon taper patterns</a>: observational activity data, not a personalised or causal prediction.</li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/10950440/">Half-marathon taper study</a>: a small male-runner treadmill study, with no performance improvement between groups.</li>
+      <li><a href="https://www.nike.com/a/how-to-run-a-better-marathon">Nike: respecting the marathon taper</a>: a coach's explanation of reducing training demands, not a schedule prescribed by this guide.</li>
+    </ul>
+    <p class="fine">Do not dismiss pain or illness as a normal taper feeling. Seek a qualified health professional's advice for symptoms or uncertainty about exercising.</p>
+
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-taper%26utm_source%3Dsite%26utm_medium%3Dwhat-is-a-taper">Get Paceline on Google Play</a>
+    <p class="fine">Android. A free account and internet connection are needed to build a plan.</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/free-running-plan-app/">Free running plan app</a>
+      <a href="/missed-weeks-training-plan/">Missed weeks? Your plan adapts</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
