@@ -20,6 +20,7 @@ class Page(HTMLParser):
     def __init__(self, text):
         super().__init__(convert_charrefs=True)
         self.stack, self.errors, self.links, self.ids = [], [], [], set()
+        self.canonicals, self.noindex = [], False
         self.doctype = False
         self.titles = self.h1s = 0
         self.in_title = False
@@ -49,6 +50,11 @@ class Page(HTMLParser):
             self.lang = bool(a.get('lang'))
         if tag == 'meta' and a.get('charset'):
             self.charset = True
+        if tag == 'link' and 'canonical' in a.get('rel', '').lower().split():
+            self.canonicals.append(a.get('href', ''))
+        if tag == 'meta' and a.get('name', '').lower() in ('robots', 'googlebot'):
+            directives = a.get('content', '').lower().replace(',', ' ').split()
+            self.noindex |= bool({'noindex', 'none'} & set(directives))
         if tag == 'title':
             self.titles += 1
             self.in_title = True
@@ -144,6 +150,14 @@ def check(root):
                 dest = resolve(root, root / 'index.html', url)
                 if not dest or not dest[0].is_file():
                     errors.append('sitemap.xml: missing target ' + url)
+                elif dest[0] in pages:
+                    page = pages[dest[0]]
+                    if page.noindex:
+                        errors.append('sitemap.xml: noindex target ' + url)
+                    # Existing legal pages without canonicals remain allowed. If an
+                    # explicit canonical exists, it must agree with the sitemap.
+                    if page.canonicals and page.canonicals != [url]:
+                        errors.append('sitemap.xml: canonical mismatch ' + url)
         except ET.ParseError as e:
             errors.append('sitemap.xml: ' + str(e))
     return pages, errors
@@ -172,6 +186,47 @@ class SelfTests(unittest.TestCase):
             root = Path(folder)
             (root / 'sitemap.xml').write_text('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://pacelinerun.com/missing/</loc></url></urlset>')
             self.assertTrue(check(root)[1])
+
+    def sitemap_fixture(self, head='', url='https://pacelinerun.com/'):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'index.html').write_text(
+                '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+                '<title>Test</title>' + head + '</head><body></body></html>')
+            tree = ET.Element('urlset', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
+            ET.SubElement(ET.SubElement(tree, 'url'), 'loc').text = url
+            ET.ElementTree(tree).write(root / 'sitemap.xml', encoding='unicode')
+            return check(root)[1]
+
+    def test_sitemap_canonical_agreement(self):
+        canonical = '<link rel="canonical" href="https://pacelinerun.com/">'
+        self.assertFalse(self.sitemap_fixture(canonical))
+        self.assertFalse(self.sitemap_fixture())  # legal-page compatibility
+        for head in (
+            '<link rel="canonical" href="https://example.com/">',
+            '<link rel="canonical" href="https://pacelinerun.com/other/">',
+            '<link rel="CANONICAL alternate" href="https://pacelinerun.com/other/">',
+            '<link rel="canonical">',
+            canonical + canonical,
+        ):
+            with self.subTest(head=head):
+                self.assertTrue(any('canonical mismatch' in e for e in self.sitemap_fixture(head)))
+
+    def test_sitemap_noindex(self):
+        for name in ('robots', 'Googlebot'):
+            for content in ('noindex', 'NOINDEX, follow', 'nofollow noindex', 'none'):
+                with self.subTest(name=name, content=content):
+                    head = f'<meta name="{name}" content="{content}">'
+                    self.assertTrue(any('noindex target' in e for e in self.sitemap_fixture(head)))
+        self.assertFalse(self.sitemap_fixture('<meta name="robots" content="index, follow">'))
+        # An unlisted utility/redirect page may still deliberately be noindex.
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'index.html').write_text(
+                '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
+                '<title>Utility</title><meta name="robots" content="noindex">'
+                '</head><body></body></html>')
+            self.assertFalse(check(root)[1])
 
 
 if __name__ == '__main__':
