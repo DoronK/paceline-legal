@@ -29,3 +29,5 @@ jobs:
         run: python3 scripts/check_site.py
       - name: Check plan hub guide paths
         run: python3 scripts/test_plan_hub.py
+      - name: Check generated plan share metadata
+        run: python3 scripts/test_plan_metadata.py
