@@ -7,4 +7,4 @@ An agent picks up only GitHub issues that carry its own work label:
 - `Claude-work`: Claude Code agents (local sessions, their subagents, cloud sessions, auto-pilot).
 - `Instinct-work`: Instinct.
 
-Only the owner adds work labels; an agent never adds one, including on issues it files. Lane notes (`instinct`, `Claude Agent`), priority and ROADMAP order never make an issue workable. An issue without your work label may be worked only when the owner names it in the current request. If no issue carries your work label, say so and stop. Reviewing, merging or releasing work the owner asks for directly is not pickup.
+Only the owner adds work labels; an agent never adds one, including on issues it files. The `Claude Agent` lane note (the cloud lane has none since 2026-11-22), priority and ROADMAP order never make an issue workable. An issue without your work label may be worked only when the owner names it in the current request. If no issue carries your work label, say so and stop. Reviewing, merging or releasing work the owner asks for directly is not pickup.
