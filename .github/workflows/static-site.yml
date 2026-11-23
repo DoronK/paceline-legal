@@ -27,3 +27,5 @@ jobs:
         run: python3 scripts/check_site.py --self-test
       - name: Check HTML and internal links
         run: python3 scripts/check_site.py
+      - name: Check plan hub guide paths
+        run: python3 scripts/test_plan_hub.py
