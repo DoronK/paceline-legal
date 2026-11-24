@@ -6,6 +6,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 HAND_OWNED = {'10k-training-plan-beginner', 'half-marathon-training-plan-beginner'}
+STAGED_SHARE_SLUG = 'sub-330-marathon-training-plan'
+STAGED_SHARE_IMAGE = 'img/share/sub-330-marathon-training-plan.png'
 
 
 class Head(HTMLParser):
@@ -46,22 +48,24 @@ class MetadataTests(unittest.TestCase):
                 head = Head(path.read_text())
                 expected_url = 'https://pacelinerun.com/' + str(path.parent.relative_to(ROOT)) + '/'
                 self.assertEqual(head.canonical, [expected_url])
+                staged = path.parent.name == STAGED_SHARE_SLUG
+                image = STAGED_SHARE_IMAGE if staged else 'img/paceline-icon.png'
                 expected = {
                     'og:title': head.title,
                     'og:description': head.meta['description'][0],
                     'og:url': expected_url,
                     'og:type': 'website' if path.parent.name == 'training-plans' else 'article',
                     'og:site_name': 'Paceline',
-                    'og:image': 'https://pacelinerun.com/img/paceline-icon.png',
-                    'og:image:width': '192',
-                    'og:image:height': '192',
-                    'og:image:alt': 'Paceline app icon',
-                    'twitter:card': 'summary',
+                    'og:image': 'https://pacelinerun.com/' + image,
+                    'og:image:width': '1200' if staged else '192',
+                    'og:image:height': '630' if staged else '192',
+                    'og:image:alt': 'Paceline sub-3:30 marathon training plan share card' if staged else 'Paceline app icon',
+                    'twitter:card': 'summary_large_image' if staged else 'summary',
                 }
                 for key, value in expected.items():
                     self.assertEqual(head.meta.get(key), [value], key)
                 self.assertNotIn('?', expected_url)
-                self.assertTrue((ROOT / 'img/paceline-icon.png').is_file())
+                self.assertTrue((ROOT / image).is_file())
 
 
 if __name__ == '__main__':
