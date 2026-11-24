@@ -42,7 +42,7 @@ class MetadataTests(unittest.TestCase):
         paths = [ROOT / 'training-plans/index.html'] + [
             p for p in (ROOT / 'training-plans').glob('*/index.html')
             if p.parent.name not in HAND_OWNED]
-        self.assertEqual(len(paths), 21)
+        self.assertEqual(len(paths), 27)
         for path in paths:
             with self.subTest(page=str(path.relative_to(ROOT))):
                 head = Head(path.read_text())

@@ -58,9 +58,9 @@ class HubTests(unittest.TestCase):
             self.assertGreater(len(label.strip().split()), 3, url)
             self.assertTrue((ROOT / url.strip('/') / 'index.html').is_file())
 
-    def test_all_22_sample_destinations_remain(self):
+    def test_all_28_sample_destinations_remain(self):
         expected = {'/' + str(p.parent.relative_to(ROOT)) + '/' for p in (ROOT / 'training-plans').glob('*/index.html')}
-        self.assertEqual(len(expected), 22)
+        self.assertEqual(len(expected), 28)
         actual = {url for url, _, _ in self.hub.links if url.startswith('/training-plans/') and url != '/training-plans/'}
         self.assertEqual(actual, expected)
 
