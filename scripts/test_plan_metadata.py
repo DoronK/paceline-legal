@@ -6,8 +6,34 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 HAND_OWNED = {'10k-training-plan-beginner', 'half-marathon-training-plan-beginner'}
-STAGED_SHARE_SLUG = 'sub-330-marathon-training-plan'
-STAGED_SHARE_IMAGE = 'img/share/sub-330-marathon-training-plan.png'
+STAGED_SHARE_SLUGS = {
+    '100k-ultramarathon-training-plan-advanced',
+    '100k-ultramarathon-training-plan-intermediate',
+    '10k-training-plan-advanced',
+    '10k-training-plan-intermediate',
+    '50-mile-ultramarathon-training-plan-advanced',
+    '50-mile-ultramarathon-training-plan-intermediate',
+    '50k-ultramarathon-training-plan-advanced',
+    '50k-ultramarathon-training-plan-beginner',
+    '50k-ultramarathon-training-plan-intermediate',
+    '5k-training-plan-advanced',
+    '5k-training-plan-beginner',
+    '5k-training-plan-intermediate',
+    'half-marathon-training-plan-advanced',
+    'half-marathon-training-plan-intermediate',
+    'marathon-training-plan-advanced',
+    'marathon-training-plan-beginner',
+    'marathon-training-plan-intermediate',
+    'sub-145-half-marathon-training-plan',
+    'sub-2-hour-half-marathon-training-plan',
+    'sub-230-half-marathon-training-plan',
+    'sub-3-hour-marathon-training-plan',
+    'sub-430-marathon-training-plan',
+    'sub-5-hour-marathon-training-plan',
+    'sub-50-minute-10k-training-plan',
+    'sub-60-minute-10k-training-plan',
+    'sub-330-marathon-training-plan',
+}
 
 
 class Head(HTMLParser):
@@ -48,8 +74,8 @@ class MetadataTests(unittest.TestCase):
                 head = Head(path.read_text())
                 expected_url = 'https://pacelinerun.com/' + str(path.parent.relative_to(ROOT)) + '/'
                 self.assertEqual(head.canonical, [expected_url])
-                staged = path.parent.name == STAGED_SHARE_SLUG
-                image = STAGED_SHARE_IMAGE if staged else 'img/paceline-icon.png'
+                staged = path.parent.name in STAGED_SHARE_SLUGS
+                image = f'img/share/{path.parent.name}.png' if staged else 'img/paceline-icon.png'
                 expected = {
                     'og:title': head.title,
                     'og:description': head.meta['description'][0],
@@ -59,11 +85,17 @@ class MetadataTests(unittest.TestCase):
                     'og:image': 'https://pacelinerun.com/' + image,
                     'og:image:width': '1200' if staged else '192',
                     'og:image:height': '630' if staged else '192',
-                    'og:image:alt': 'Paceline sub-3:30 marathon training plan share card' if staged else 'Paceline app icon',
                     'twitter:card': 'summary_large_image' if staged else 'summary',
                 }
                 for key, value in expected.items():
                     self.assertEqual(head.meta.get(key), [value], key)
+                alt = head.meta.get('og:image:alt')
+                self.assertIsNotNone(alt, 'og:image:alt')
+                self.assertEqual(len(alt), 1, 'og:image:alt')
+                if staged:
+                    self.assertTrue(alt[0].endswith(' share card'), alt[0])
+                else:
+                    self.assertEqual(alt[0], 'Paceline app icon')
                 self.assertNotIn('?', expected_url)
                 self.assertTrue((ROOT / image).is_file())
 
