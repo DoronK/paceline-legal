@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marathon pace chart: finish time to pace per km and per mile | Paceline</title>
+<meta name="description" content="A marathon pace chart for finish times from 2:30 to 6:00, in minutes per kilometre and per mile, with the half-way split. Even-pace arithmetic, not a prediction.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://pacelinerun.com/marathon-pace-chart/">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0C10" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Paceline">
+<meta property="og:title" content="Marathon pace chart: finish time to pace per km and per mile | Paceline">
+<meta property="og:description" content="A marathon pace chart for finish times from 2:30 to 6:00, in minutes per kilometre and per mile, with the half-way split. Even-pace arithmetic, not a prediction.">
+<meta property="og:url" content="https://pacelinerun.com/marathon-pace-chart/">
+<meta property="og:image" content="https://pacelinerun.com/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted, OFL-licensed (see /fonts/OFL-*.txt). Variable woff2 subsets:
+     one file per family covers every weight the page uses, so the declared
+     `font-weight` ranges are what the browser interpolates across. */
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/inter-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500 700;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin-ext.woff2) format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Palette is Paceline's own AppColors, token-for-token. */
+  :root {
+    --bg: #F6F7F9;
+    --bg-alt: #F2F3F5;
+    --surface: #FFFFFF;
+    --surface-high: #F2F3F5;
+    --divider: #E4E6EB;
+    --outline: #7C8194;
+    --text-primary: #16181D;
+    --text-secondary: #62667A;
+    --text-faint: #A1A5B3;
+    --accent: #2D5BFF;
+    --accent-soft: rgba(45, 91, 255, 0.08);
+    --accent-soft-strong: rgba(45, 91, 255, 0.16);
+    --accent-glow: rgba(45, 91, 255, 0.14);
+    --bezel: #16181D;
+    --bezel-edge: rgba(255, 255, 255, 0.14);
+    --header-bg: rgba(246, 247, 249, 0.86);
+    --shadow-sm: 0 1px 2px rgba(16, 18, 29, 0.05);
+    --shadow-md: 0 10px 30px -14px rgba(16, 18, 29, 0.28);
+    --shadow-lg: 0 34px 70px -30px rgba(16, 18, 29, 0.38);
+
+    /* Electric Blue is the single accent. It stays #2D5BFF on filled
+       surfaces in *both* schemes -- same as the app's ColorScheme
+       (primary: electric, onPrimary: white, light and dark) -- because
+       white on #6485FF is only 3.31:1, under AA for a button label. */
+    --accent-solid: #2D5BFF;
+    --on-accent: #FFFFFF;
+
+    /* Workout-type identity colours, used sparingly as illustration. */
+    --easy: #34D399;
+    --tempo: #F5A524;
+    --interval: #FF5C7A;
+    --long: #2D5BFF;
+    --rest: #A1A5B3;
+
+    --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+    --shell: 960px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B0C10;
+      --bg-alt: #101218;
+      --surface: #16181D;
+      --surface-high: #1E2128;
+      --divider: #262932;
+      --outline: #6B7080;
+      --text-primary: #F2F3F5;
+      --text-secondary: #9296A3;
+      --text-faint: #5B5F6B;
+      --accent: #6485FF;
+      --accent-soft: rgba(100, 133, 255, 0.12);
+      --accent-soft-strong: rgba(100, 133, 255, 0.22);
+      --accent-glow: rgba(100, 133, 255, 0.20);
+      --bezel: #272B34;
+      --bezel-edge: rgba(255, 255, 255, 0.10);
+      --header-bg: rgba(11, 12, 16, 0.86);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+      --shadow-lg: 0 34px 70px -30px rgba(0, 0, 0, 0.9);
+      --rest: #5B5F6B;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
+  body { background: var(--bg); color: var(--text-primary); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .shell { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  .masthead { padding: 22px 0 0; }
+  .site-nav { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.92rem; }
+  .site-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
+  .site-nav a:hover { color: var(--text-primary); }
+  .wordmark { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--text-primary); text-decoration: none; }
+  h1 { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.12; margin: 40px 0 12px; letter-spacing: -0.01em; }
+  h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 44px 0 8px; }
+  .checked { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 24px; }
+  .summary { background: var(--surface); border: 1px solid var(--divider); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .summary p { margin: 0; }
+  p, li { color: var(--text-primary); }
+  li { margin: 8px 0; }
+  ul { padding-left: 1.2rem; }
+  .point { margin: 18px 0; }
+  .point strong { font-family: var(--font-display); }
+  .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; background: var(--accent-solid); color: var(--on-accent); font-family: var(--font-display); font-weight: 600; text-decoration: none; margin-top: 8px; }
+  footer { margin-top: 64px; padding: 24px 0 40px; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: 0.9rem; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 8px; }
+  .fine { color: var(--text-secondary); font-size: 0.88rem; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.95rem; margin: 12px 0; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--divider); vertical-align: top; }
+  th { color: var(--text-secondary); font-weight: 500; }
+  .scroll { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="masthead">
+    <a class="wordmark" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 18 L9 10 L14 14 L21 5" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="21" cy="5" r="2.6" fill="var(--accent)"/>
+      </svg>
+      Paceline
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/training-plans/">Training plans</a>
+      <a href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-pacechart%26utm_source%3Dsite%26utm_medium%3Dmarathon-pace-chart">Get the app</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Marathon pace chart: finish time to pace per km and per mile</h1>
+    <p class="checked">Checked 27 November 2026. The numbers are arithmetic, calculated from a 42.195 km course. General information, not an individual training prescription.</p>
+
+    <div class="summary">
+      <p><strong>Divide your goal finish time by 42.195 km to get the pace you would need to hold the whole way.</strong> A 4:00:00 marathon is about 5:41 per km, or 9:09 per mile.</p>
+    </div>
+
+    <h2>Even-pace chart</h2>
+    <p>Each row assumes the same pace from the start to the finish. Pace is rounded to the nearest second.</p>
+    <div class="scroll">
+    <table>
+      <thead><tr><th>Finish time</th><th>Pace per km</th><th>Pace per mile</th><th>Half-way (21.1 km)</th></tr></thead>
+      <tbody>
+        <tr><td>2:30:00</td><td>3:33</td><td>5:43</td><td>1:15:00</td></tr>
+        <tr><td>2:45:00</td><td>3:55</td><td>6:18</td><td>1:22:30</td></tr>
+        <tr><td>3:00:00</td><td>4:16</td><td>6:52</td><td>1:30:00</td></tr>
+        <tr><td>3:15:00</td><td>4:37</td><td>7:26</td><td>1:37:30</td></tr>
+        <tr><td>3:30:00</td><td>4:59</td><td>8:01</td><td>1:45:00</td></tr>
+        <tr><td>3:45:00</td><td>5:20</td><td>8:35</td><td>1:52:30</td></tr>
+        <tr><td>4:00:00</td><td>5:41</td><td>9:09</td><td>2:00:00</td></tr>
+        <tr><td>4:15:00</td><td>6:03</td><td>9:44</td><td>2:07:30</td></tr>
+        <tr><td>4:30:00</td><td>6:24</td><td>10:18</td><td>2:15:00</td></tr>
+        <tr><td>4:45:00</td><td>6:45</td><td>10:52</td><td>2:22:30</td></tr>
+        <tr><td>5:00:00</td><td>7:07</td><td>11:27</td><td>2:30:00</td></tr>
+        <tr><td>5:15:00</td><td>7:28</td><td>12:01</td><td>2:37:30</td></tr>
+        <tr><td>5:30:00</td><td>7:49</td><td>12:35</td><td>2:45:00</td></tr>
+        <tr><td>5:45:00</td><td>8:11</td><td>13:10</td><td>2:52:30</td></tr>
+        <tr><td>6:00:00</td><td>8:32</td><td>13:44</td><td>3:00:00</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2>What the chart does not tell you</h2>
+    <ul>
+      <li><strong>It is not a forecast.</strong> It shows what a goal time costs per kilometre. It does not say whether you can run it.</li>
+      <li><strong>Race pace is not training pace.</strong> Most training runs are slower and easy. Marathon pace is one of several efforts in a plan, not every run.</li>
+      <li><strong>Courses are not flat and days are not perfect.</strong> Hills, heat, wind and crowds at the start all move your real splits around the even-pace line.</li>
+      <li><strong>Distance on a watch.</strong> Watches often read slightly over 42.195 km because of the path you actually run, so your watch pace can differ a little from the chart.</li>
+    </ul>
+
+    <h2>How to use it</h2>
+    <p>Pick a goal time you have a reason to believe, such as a recent race result, then look at the pace it implies. If that pace feels far beyond a recent hard effort, a slower goal may be the better plan. Paceline has sample marathon plans for different goal times: <a href="/training-plans/sub-5-hour-marathon-training-plan/">sub-5</a>, <a href="/training-plans/sub-430-marathon-training-plan/">sub-4:30</a>, <a href="/training-plans/sub-330-marathon-training-plan/">sub-3:30</a> and <a href="/training-plans/sub-3-hour-marathon-training-plan/">sub-3</a>. For a first marathon see the <a href="/training-plans/marathon-training-plan-beginner/">beginner marathon plan</a>.</p>
+    <p>Pace is only one part of a plan. How many days you run matters too, see <a href="/how-many-days-to-run/">how many days a week to run</a>, and how to ease off before race day in <a href="/what-is-a-taper/">what is a taper</a>.</p>
+
+    <h2>Is Paceline right for this?</h2>
+    <p>Paceline is a planning-only Android app, and the whole training plan is free. Read <a href="/free-running-plan-app/">what it does and does not do</a>.</p>
+
+    <p class="fine">If you have a health condition or are unsure whether you are ready for a marathon, check with a doctor. Do not push through pain.</p>
+
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.dk.paceline&amp;referrer=ref%3Dseo-pacechart%26utm_source%3Dsite%26utm_medium%3Dmarathon-pace-chart">Get Paceline on Google Play</a>
+    <p class="fine">Android. A free account and internet connection are needed to build a plan.</p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Paceline</span>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/training-plans/">Training plans</a>
+      <a href="/free-running-plan-app/">Free running plan app</a>
+      <a href="/missed-weeks-training-plan/">Missed weeks? Your plan adapts</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:hello@pacelinerun.com">hello@pacelinerun.com</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
