@@ -31,6 +31,7 @@ STAGED_SHARE_SLUGS = {
     'sub-430-marathon-training-plan',
     'sub-5-hour-marathon-training-plan',
     'sub-50-minute-10k-training-plan',
+    'training-plans',
     'sub-60-minute-10k-training-plan',
     'sub-330-marathon-training-plan',
 }
